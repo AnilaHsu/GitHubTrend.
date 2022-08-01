@@ -1,4 +1,4 @@
-import './header.scss';
+import '../style/header.scss';
 
 function Login(props){
   if(props.logined.login===true){

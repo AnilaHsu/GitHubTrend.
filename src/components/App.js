@@ -1,7 +1,7 @@
-import './app.scss';
+import '../style/app.scss';
 import { useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { FirebaseAuth } from "./firebase"
+import { FirebaseAuth } from "../firebase"
 
 import { Header } from './Header';
 import { Dialog } from './Dialog';

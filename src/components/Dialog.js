@@ -1,4 +1,4 @@
-import './dialog.scss'
+import '../style/dialog.scss'
 
 
 function UserAuth(props){
