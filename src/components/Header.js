@@ -1,30 +1,14 @@
-import '../style/header.scss';
+import "../style/header.scss";
+import { Login } from "./Login";
 
-function Login(props){
-  if(props.logined.login===true){
-    return(
-      'your are logined'
-    )
-  }
-  else if(props.logined.login===false){
-    return(
-      <div className="login">
-        <button className="login-button" onClick={props.openHandle}> 登入 / 註冊 </button>
+export function Header(props) {
+  return (
+    <header>
+      <div className="tool-bar">
+        <div className="logo">RealD</div>
+        <Login isLogin={props.isLogin} openHandle={props.openHandle} 
+        handleSetting={props.handleSetting}  handleLogout={props.handleLogout} />
       </div>
-  )}
+    </header>
+  );
 }
-
-export function Header(props){
-    return(
-      <header>
-        <div className="tool-bar">
-          <div className="logo">
-            RealD
-          </div>
-          <Login logined={props.logined} openHandle={props.openHandle}/>
-          
-        </div>
-      </header>
-    )
-  }
-

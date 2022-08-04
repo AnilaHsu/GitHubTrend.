@@ -1,5 +1,5 @@
 import '../style/app.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FirebaseAuth } from "../firebase"
 
@@ -12,8 +12,19 @@ const [auth,provider] = FirebaseAuth()
 function App() {
   const [openDialog, setOpenDialog] = useState(false) 
   const [user,setUser] = useState("");
-  const [logined,setLogined] = useState({login:false,user:''});
+  const [isLogin,setIsLogin] = useState(() => {
+    const saved = localStorage.getItem("loginState")
+    const initialValue = JSON.parse(saved);
+    return initialValue || {login:false}
+  });
+  const [userMenu,setUserMenu] = useState("")
 
+
+  useEffect(() => {
+    function persistLogin(){
+      localStorage.setItem("loginState", JSON.stringify(isLogin));
+    }
+  },[isLogin]);
 
   const openHandle = () => {
     setOpenDialog(true)
@@ -45,10 +56,10 @@ function App() {
             // The signed-in user info.
             const user = result.user;
             // ...
-            console.log('token:',token,'user:',user)
-            setLogined({login:true, user:''})
-            console.log('ok')
-
+            console.log('token:',token,'user:',user,)
+            setIsLogin({login:true,name:user.displayName,email:user.email,photo:user.photoURL})
+            setOpenDialog(false);
+          
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
@@ -62,9 +73,18 @@ function App() {
         }); 
   }
 
+  const handleSetting = () => {
+    setUserMenu("setting")
+  }
+  const handleLogout = () => {
+    setUserMenu("logout")
+    setIsLogin({login:false})
+  }
+
   return (
     <div className="container">
-        <Header logined={logined}  openHandle={openHandle} />
+        <Header isLogin={isLogin}  openHandle={openHandle} 
+        handleSetting={handleSetting} handleLogout={handleLogout}/>
         <Dialog dialog={openDialog} closeHandle={closeHandle} user={user} 
           handleLogin={handleLogin} handleRegister={handleRegister} handleUser={handleUser}
           handleGoogleAuth={handleGoogleAuth} />
