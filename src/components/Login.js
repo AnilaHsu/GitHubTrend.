@@ -13,7 +13,15 @@ import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 
-export function Login(props) {
+import { useDispatch,useSelector } from "react-redux";
+import { openDialog } from "../features/dialog"
+import { logout,selectMenu } from "../features/user"
+
+
+export function Login() {
+  const dispatch = useDispatch();
+  const loginInfo = useSelector((state) => state.user.value.loginInfo)
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -23,8 +31,8 @@ export function Login(props) {
     setAnchorEl(null);
   };
 
-  if (props.isLogin.login === true) {
-    if (props.isLogin.photo === null) {
+  if (loginInfo.login === true) {
+    if (loginInfo.photo === null) {
       return (
         <div className="login">
         <Tooltip title="Account settings">
@@ -75,13 +83,18 @@ export function Login(props) {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
-          <MenuItem onClick={props.handleSetting}>
+          <MenuItem onClick={() => {
+            dispatch(selectMenu("setting"))
+          }}>
             <ListItemIcon>
               <Settings fontSize="small" />
             </ListItemIcon>
             Settings
           </MenuItem>
-          <MenuItem onClick={props.handleLogout}>
+          <MenuItem onClick={() => {
+            dispatch(logout({login:false}))
+            dispatch(selectMenu("logout"))
+          }}>
             <ListItemIcon>
               <Logout fontSize="small" />
             </ListItemIcon>
@@ -102,7 +115,7 @@ export function Login(props) {
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
             >
-              <img src={props.isLogin.photo} className="user-icon" />
+              <img src={loginInfo.photo} className="user-icon" />
             </IconButton>
           </Tooltip>
           <Menu
@@ -138,13 +151,18 @@ export function Login(props) {
             transformOrigin={{ horizontal: "right", vertical: "top" }}
             anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
           >
-            <MenuItem onClick={props.handleSetting}>
+            <MenuItem onClick={() => {
+              dispatch(selectMenu("setting"))
+            }}>
               <ListItemIcon>
                 <Settings fontSize="small" />
               </ListItemIcon>
               Settings
             </MenuItem>
-            <MenuItem onClick={props.handleLogout}>
+            <MenuItem onClick={() => {
+              dispatch(logout({login:false}))
+              dispatch(selectMenu("logout"))
+            }}>
               <ListItemIcon>
                 <Logout fontSize="small" />
               </ListItemIcon>
@@ -154,10 +172,10 @@ export function Login(props) {
         </div>
       );
     }
-  } else if (props.isLogin.login === false) {
+  } else if (loginInfo.login === false ) {
     return (
       <div className="login">
-        <button className="login-button" onClick={props.openHandle}>
+        <button className="login-button" onClick={() => {dispatch(openDialog(true))}}>
           登入 / 註冊
         </button>
       </div>
