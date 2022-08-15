@@ -1,7 +1,7 @@
 import "../style/header.scss";
 import { Login } from "./Login";
 
-export function Header(props) {
+export function Header() {
   return (
     <header>
       <div className="tool-bar">
@@ -11,3 +11,5 @@ export function Header(props) {
     </header>
   );
 }
+
+export default Header;
