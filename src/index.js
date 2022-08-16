@@ -12,7 +12,7 @@ import userReducer from './features/user';
 const store = configureStore({
   reducer:{
     dialog:dialogReducer,
-    user:userReducer,
+    user:userReducer
   }
 })
 

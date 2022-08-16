@@ -66,11 +66,12 @@ export function DialogOption() {
                     name: user.displayName,
                     email: user.email,
                     photo: user.photoURL,
-                  }
-                  dispatch(
-                    login(loginState)
+                  };
+                  dispatch(login(loginState));
+                  localStorage.setItem(
+                    "loginState",
+                    JSON.stringify(loginState)
                   );
-                  localStorage.setItem("loginState", JSON.stringify(loginState));
                   dispatch(closeDialog(false));
                 })
                 .catch((error) => {

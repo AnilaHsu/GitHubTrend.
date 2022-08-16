@@ -5,14 +5,14 @@ import { useDispatch } from "react-redux";
 import { login } from "../features/user";
 
 export function Header() {
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const loginInfo = JSON.parse(localStorage.getItem("loginState"))
-    if (loginInfo){
-      dispatch(login(loginInfo))
+    const loginInfo = JSON.parse(localStorage.getItem("loginState"));
+    if (loginInfo) {
+      dispatch(login(loginInfo));
     }
-  },[dispatch])
+  }, [dispatch]);
 
   return (
     <header>

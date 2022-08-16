@@ -83,7 +83,7 @@ export function UserMenu(props) {
         <MenuItem
           onClick={() => {
             dispatch(logout({ login: false }));
-            localStorage.removeItem("loginState")
+            localStorage.removeItem("loginState");
             dispatch(selectMenu("logout"));
           }}
         >
