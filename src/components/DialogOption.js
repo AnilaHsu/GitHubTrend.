@@ -61,14 +61,16 @@ export function DialogOption() {
                   const user = result.user;
                   // ...
                   console.log("token:", token, "user:", user);
+                  const loginState = {
+                    login: true,
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL,
+                  }
                   dispatch(
-                    login({
-                      login: true,
-                      name: user.displayName,
-                      email: user.email,
-                      photo: user.photoURL,
-                    })
+                    login(loginState)
                   );
+                  localStorage.setItem("loginState", JSON.stringify(loginState));
                   dispatch(closeDialog(false));
                 })
                 .catch((error) => {
@@ -112,7 +114,7 @@ export function DialogOption() {
         </button>
         <h3 style={{ textAlign: "center" }}>歡迎來到 RealD !</h3>
         <div className="register-session">
-          <button className="auth-button">以 Google 帳戶註冊 </button>
+          <button className="auth-button"> 以 Google 帳戶註冊 </button>
           <hr></hr>
         </div>
       </div>
