@@ -3,7 +3,7 @@ import { closeDialog, selectMenu } from "../features/dialogSlice";
 import { login } from "../features/userSlice";
 import "../style/dialogOption.scss";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { FirebaseAuth } from "../firebase";
+import { FirebaseAuth } from "../firebase/firebase";
 
 const [auth, provider] = FirebaseAuth();
 
