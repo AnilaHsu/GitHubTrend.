@@ -8,7 +8,7 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { logout, selectMenu } from "../features/user";
+import { logout, selectMenu } from "../features/userSlice";
 
 export function UserMenu(props) {
   const dispatch = useDispatch();
@@ -83,7 +83,6 @@ export function UserMenu(props) {
         <MenuItem
           onClick={() => {
             dispatch(logout({ login: false }));
-            localStorage.removeItem("loginState");
             dispatch(selectMenu("logout"));
           }}
         >

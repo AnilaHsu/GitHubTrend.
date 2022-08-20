@@ -5,16 +5,30 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { configureStore } from "@reduxjs/toolkit";
-import dialogReducer from './features/dialog';
-import userReducer from './features/user';
+import dialogReducer from './features/dialogSlice';
+import userReducer, { login, logout } from './features/userSlice';
+import { LOGIN_STATE } from './constants/local-storage';
 
+
+const userMiddleware = (store) => (next) => (action) => {
+  if (login.match(action)) {
+    localStorage.setItem(LOGIN_STATE, JSON.stringify(action.payload));
+  } else if (logout.match(action)) {
+    localStorage.removeItem();
+  }
+  return next(action);
+};
 
 const store = configureStore({
   reducer:{
     dialog:dialogReducer,
-    user:userReducer
-  }
+    user:userReducer,
+    devTools: process.env.NODE_ENV !== 'production',
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(userMiddleware)
 })
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

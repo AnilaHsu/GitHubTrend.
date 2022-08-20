@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { closeDialog, selectMenu } from "../features/dialog";
-import { login } from "../features/user";
+import { closeDialog, selectMenu } from "../features/dialogSlice";
+import { login } from "../features/userSlice";
 import "../style/dialogOption.scss";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FirebaseAuth } from "../firebase";
@@ -68,10 +68,6 @@ export function DialogOption() {
                     photo: user.photoURL,
                   };
                   dispatch(login(loginState));
-                  localStorage.setItem(
-                    "loginState",
-                    JSON.stringify(loginState)
-                  );
                   dispatch(closeDialog(false));
                 })
                 .catch((error) => {

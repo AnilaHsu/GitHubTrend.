@@ -1,27 +1,19 @@
-import { useEffect } from "react";
 import "../style/header.scss";
-import { Login } from "./Login";
-import { useDispatch } from "react-redux";
-import { login } from "../features/user";
+import Login, { UserAvatar } from "./UserAvatar";
+import { useSelector } from "react-redux";
+
 
 export function Header() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const loginInfo = JSON.parse(localStorage.getItem("loginState"));
-    if (loginInfo) {
-      dispatch(login(loginInfo));
-    }
-  }, [dispatch]);
-
-  return (
-    <header>
-      <div className="tool-bar">
-        <div className="logo">RealD</div>
-        <Login />
-      </div>
-    </header>
-  );
+  const loginInfo = useSelector((state) => state.user.value.loginInfo);
+  if (loginInfo.login === true) {
+    return(
+      <UserAvatar />
+    )
+  } else if (loginInfo.login === false) {
+    return (
+      <Login />
+    );
+  }
 }
 
 export default Header;

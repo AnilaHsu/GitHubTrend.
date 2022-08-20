@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { closeDialog, selectMenu } from "../features/dialog";
+import { closeDialog, selectMenu } from "../features/dialogSlice";
 import { DialogOption } from "./DialogOption";
 import "../style/dialog.scss";
 
