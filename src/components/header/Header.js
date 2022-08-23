@@ -1,4 +1,4 @@
-import "../style/header.scss";
+import "../../style/header.scss";
 import Login, { UserAvatar } from "./UserAvatar";
 import { useSelector } from "react-redux";
 
