@@ -1,0 +1,33 @@
+
+.trend-box {
+    margin: 20px;
+    padding: 40px 40px;
+}
+
+.trend-title {
+    text-align: center;
+}
+
+.trend-content {
+    margin: auto;
+    border: 1px solid;
+    border-radius: 10px;
+    max-width: 1000px;
+}
+
+.trend-row {
+    padding: 10px 40px;
+    border-bottom: 1px solid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.trend-right {
+    text-align: right;
+    display: flex;
+}
+.icon {
+    margin-right: 3px;
+    text-align: center;
+}
