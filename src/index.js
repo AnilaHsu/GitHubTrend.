@@ -8,7 +8,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import dialogReducer from "./features/dialogSlice";
 import userReducer, { login, logout } from "./features/userSlice";
 import { LOGIN_STATE } from "./constants/local-storage";
-import homeReducer from "./features/homeSlice";
+import trendReducer from "./features/trendSlice";
 
 const userMiddleware = (store) => (next) => (action) => {
   if (login.match(action)) {
@@ -23,7 +23,7 @@ const store = configureStore({
   reducer: {
     dialog: dialogReducer,
     user: userReducer,
-    home: homeReducer,
+    trend: trendReducer,
     devTools: process.env.NODE_ENV !== "production",
   },
   middleware: (getDefaultMiddleware) =>

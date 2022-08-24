@@ -6,7 +6,7 @@ import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 
 export function HomePage() {
-  const trendingData = useSelector((state) => state.home.value);
+  const trendingData = useSelector((state) => state.trend.value);
   const listItems = trendingData.map((trend, index) => {
     return(
         <div className="trend-row" key={index}>
