@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [];
-export const homeSlice = createSlice({
-  name: "home",
+export const trendSlice = createSlice({
+  name: "trend",
   initialState: { value: initialState },
   reducers: {
     loadData: (state, actions) => {
@@ -11,5 +11,5 @@ export const homeSlice = createSlice({
   },
 });
 
-export const { loadData } = homeSlice.actions;
-export default homeSlice.reducer;
+export const { loadData } = trendSlice.actions;
+export default trendSlice.reducer;
