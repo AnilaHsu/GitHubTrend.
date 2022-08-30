@@ -10,9 +10,12 @@
 
 .trend-content {
     margin: auto;
+    max-width: 1000px;
+}
+
+.trend-table {
     border: 1px solid;
     border-radius: 10px;
-    max-width: 1000px;
 }
 
 .trend-row {
