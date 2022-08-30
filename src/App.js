@@ -5,7 +5,7 @@ import { Dialog } from './components/Dialog';
 import { useDispatch } from "react-redux";
 import { login } from "./features/userSlice";
 import { LOGIN_STATE } from './constants/local-storage';
-import { HomePage } from './pages/homePage/HomePage'
+import { HomePage } from './pages/HomePage'
 import { loadData } from './features/trendSlice';
 import { fetchTrends } from './data/trending';
  

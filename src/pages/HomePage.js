@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import  "../../style/homePage.scss"
-import TrendFilter from "./TrendFilter"
+import  "../style/homePage.scss"
+import TrendFilter from "../components/TrendFilter"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { solid, regular } from '@fortawesome/fontawesome-svg-core/import.macro'
 
@@ -30,12 +30,15 @@ export function HomePage() {
     )       
   });
   return <div className="trend-box">
-            <div className="trend-title">
-                <h1>Trending</h1>
-                <TrendFilter />
+            <div>
+                <h1 className="trend-title">Trending</h1>
+                
             </div>
             <div className="trend-content">
-                {listItems}
+                <TrendFilter />
+                <div className="trend-table">
+                    {listItems}
+                </div>
             </div>
         </div>;
 }
