@@ -9,6 +9,7 @@ import dialogReducer from "./features/dialogSlice";
 import userReducer, { login, logout } from "./features/userSlice";
 import { LOGIN_STATE } from "./constants/local-storage";
 import trendReducer from "./features/trendSlice";
+import filterReducer from "./features/filterSlice";
 
 const userMiddleware = (store) => (next) => (action) => {
   if (login.match(action)) {
@@ -24,6 +25,7 @@ const store = configureStore({
     dialog: dialogReducer,
     user: userReducer,
     trend: trendReducer,
+    filter: filterReducer,
     devTools: process.env.NODE_ENV !== "production",
   },
   middleware: (getDefaultMiddleware) =>
