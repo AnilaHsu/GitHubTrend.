@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {languageButton:false};
+const initialState = { language: "All" };
 export const filterSlice = createSlice({
   name: "filter",
   initialState: { value: initialState },
   reducers: {
-    openLanguage:(state, actions) => {
-      state.value.languageButton = actions.payload;
-    }
+    selectLanguage: (state, actions) => {
+      state.value.language = actions.payload;
+    },
   },
 });
 
-export const { openLanguage } = filterSlice.actions;
+export const { selectLanguage } = filterSlice.actions;
 export default filterSlice.reducer;
