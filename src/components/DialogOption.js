@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { closeDialog, selectMenu } from "../features/dialogSlice";
-import { login } from "../features/userSlice";
+import { closeDialog, selectMenu } from "../slices/dialogSlice";
+import { login } from "../slices/userSlice";
 import "../style/dialogOption.scss";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FirebaseAuth } from "../firebase/firebase";

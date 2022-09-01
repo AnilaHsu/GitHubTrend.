@@ -5,11 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import dialogReducer from "./features/dialogSlice";
-import userReducer, { login, logout } from "./features/userSlice";
+import dialogReducer from "./slices/dialogSlice";
+import userReducer, { login, logout } from "./slices/userSlice";
 import { LOGIN_STATE } from "./constants/local-storage";
-import trendReducer from "./features/trendSlice";
-import filterReducer from "./features/filterSlice";
+import trendReducer from "./slices/trendSlice";
+import filterReducer from "./slices/filterSlice";
 
 const userMiddleware = (store) => (next) => (action) => {
   if (login.match(action)) {

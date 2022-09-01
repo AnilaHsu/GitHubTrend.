@@ -3,10 +3,10 @@ import { useEffect } from 'react';
 import { Header } from './components/header/Header';
 import { Dialog } from './components/Dialog';
 import { useDispatch } from "react-redux";
-import { login } from "./features/userSlice";
+import { login } from "./slices/userSlice";
 import { LOGIN_STATE } from './constants/local-storage';
 import { HomePage } from './pages/HomePage'
-import { loadData } from './features/trendSlice';
+import { loadData } from './slices/trendSlice';
 import { fetchTrends } from './data/trending';
  
 function App() {
