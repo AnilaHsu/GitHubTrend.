@@ -1,4 +1,4 @@
-import { openDialog } from "../../features/dialogSlice";
+import { openDialog } from "../../slices/dialogSlice";
 import { useDispatch } from "react-redux";
 
 export function Login() {

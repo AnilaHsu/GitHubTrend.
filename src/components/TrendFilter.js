@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectLanguage } from "../features/filterSlice";
+import { selectLanguage } from "../slices/filterSlice";
 import "../style/trendFilter.scss";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";

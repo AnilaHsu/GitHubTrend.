@@ -8,7 +8,7 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { logout, selectMenu } from "../../features/userSlice";
+import { logout, selectMenu } from "../../slices/userSlice";
 
 export function UserMenu(props) {
   const dispatch = useDispatch();
