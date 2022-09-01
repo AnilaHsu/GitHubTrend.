@@ -1,33 +1,38 @@
 import React from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLanguage } from "../features/filterSlice";
 import "../style/trendFilter.scss";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 export function TrendFilter() {
-// const language = useSelector((state) => state.filter.value.language)
-
   const dispatch = useDispatch();
+  //   const language = useSelector((state) => state.filter.value.language) 
   const trendingData = useSelector((state) => state.trend.value);
   const allLanguages = trendingData.map((trend) => trend.language);
   const distinctLanguages = [...new Set(allLanguages)];
-  const languageOptions = distinctLanguages.map((language, index) => (
-    <option key={index} value={language}>
-      {language}
-    </option>
-  ));
+
+  const [language, setLanguage] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   return (
-    <div className="container">
-      <select
-        className="languageSelect"
-        onChange={(e) => {
-          dispatch(selectLanguage(e.target.value));
-        }}
-      >
-        <option value="All">Select Language</option>
-        {languageOptions}
-      </select>
-    </div>
+    <Autocomplete
+      id="free-solo-demo"
+      size="small"
+      freeSolo
+      value={language}
+      onChange={(event, newValue) => {
+        setLanguage(newValue)
+        dispatch(selectLanguage(newValue))
+      }}
+      inputValue={inputValue}
+      onInputChange={(event, newInputValue) => {
+        setInputValue(newInputValue);
+      }}
+      options={distinctLanguages}
+      renderInput={(params) => <TextField {...params} label="Language" />}
+    />
   );
 }
 
