@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { closeDialog, selectMenu } from "../slices/dialogSlice";
-import { login } from "../slices/userSlice";
+import { openDialog, selectMenu } from "../slices/dialogSlice";
+import { userLogin } from "../slices/userSlice";
 import "../style/dialogOption.scss";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { FirebaseAuth } from "../firebase/firebase";
 
-const [auth, provider] = FirebaseAuth();
+
 
 export function DialogOption() {
   const dispatch = useDispatch();
@@ -51,46 +49,8 @@ export function DialogOption() {
           <button
             className="auth-button"
             onClick={() => {
-              signInWithPopup(auth, provider)
-                .then((result) => {
-                  // This gives you a Google Access Token. You can use it to access the Google API.
-                  const credential =
-                    GoogleAuthProvider.credentialFromResult(result);
-                  const token = credential.accessToken;
-                  // The signed-in user info.
-                  const user = result.user;
-                  // ...
-                  console.log("token:", token, "user:", user);
-                  const loginState = {
-                    login: true,
-                    name: user.displayName,
-                    email: user.email,
-                    photo: user.photoURL,
-                  };
-                  dispatch(login(loginState));
-                  dispatch(closeDialog(false));
-                })
-                .catch((error) => {
-                  // Handle Errors here.
-                  const errorCode = error.code;
-                  const errorMessage = error.message;
-                  // The email of the user's account used.
-                  const email = error.customData.email;
-                  // The AuthCredential type that was used.
-                  const credential =
-                    GoogleAuthProvider.credentialFromError(error);
-                  // ...
-                  console.log(
-                    "errorCode:",
-                    errorCode,
-                    "errorMessage:",
-                    errorMessage,
-                    "email:",
-                    email,
-                    "credential:",
-                    credential
-                  );
-                });
+              dispatch(userLogin());
+              dispatch(openDialog(false));
             }}
           >
             以 Google 帳戶登入
