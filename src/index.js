@@ -6,19 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import dialogReducer from "./slices/dialogSlice";
-import userReducer, { login, logout } from "./slices/userSlice";
-import { LOGIN_STATE } from "./constants/local-storage";
+import userReducer from "./slices/userSlice";
 import trendReducer from "./slices/trendSlice";
 import filterReducer from "./slices/filterSlice";
+import { userMiddleware } from "./middleware/localStorage"
 
-const userMiddleware = (store) => (next) => (action) => {
-  if (login.match(action)) {
-    localStorage.setItem(LOGIN_STATE, JSON.stringify(action.payload));
-  } else if (logout.match(action)) {
-    localStorage.removeItem();
-  }
-  return next(action);
-};
 
 const store = configureStore({
   reducer: {
