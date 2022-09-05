@@ -3,41 +3,30 @@ import { regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { UserMenu } from "./UserMenu";
 import { useSelector } from "react-redux";
 
-
-
-
-export function UserAvatar(){
-    const loginInfo = useSelector((state) => state.user.value.loginInfo)
-    if (loginInfo.photo === null) {
-        return (
-          <header>
-            <div className="tool-bar">
-              <div className="logo">RealD</div>
-              <UserMenu
-                avatar={
-                  <FontAwesomeIcon
-                    icon={regular("circle-user")}
-                    className="user-icon"
-                  />
-                }
-              />
-            </div>
-          </header>
-        );
-      } else {
-        return (
-          <header>
-            <div className="tool-bar">
-              <div className="logo">RealD</div>
-              <UserMenu
-                avatar={
-                  <img alt="avatar" src={loginInfo.photo} className="user-icon" />
-                }
-              />
-            </div>
-          </header>
-        );
-      }
+export function UserAvatar() {
+  const photo = useSelector((state) => state.user.value.loginInfo.photo);
+  let userImage;
+  if (photo === null) {
+    userImage = (
+      <UserMenu
+        avatar={
+          <FontAwesomeIcon
+            icon={regular("circle-user")}
+            className="user-icon"
+          />
+        }
+      />
+    );
+  } else if ( photo !== null) {
+    userImage = (
+      <UserMenu
+        avatar={
+          <img alt="avatar" src={photo} className="user-icon" />
+        }
+      />
+    );
+  }
+  return userImage;
 }
 
 export default UserAvatar;
