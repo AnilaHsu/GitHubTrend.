@@ -1,17 +1,18 @@
+import "../../style/loginRegister.scss";
 import { openDialog } from "../../slices/dialogSlice";
 import { useDispatch } from "react-redux";
 
 export function LoginRegister() {
   const dispatch = useDispatch();
   return (
-    <div className="login">
+    <div className="login-register">
       <button
-        className="login-button"
+        className="login-register-button"
         onClick={() => {
           dispatch(openDialog(true));
         }}
       >
-        登入 / 註冊
+        Login / Sing up
       </button>
     </div>
   );
