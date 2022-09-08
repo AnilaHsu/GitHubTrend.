@@ -1,4 +1,3 @@
-import "../../style/login.scss";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -8,7 +7,7 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { logout, selectMenu } from "../../slices/userSlice";
+import { logout, userMenu } from "../../slices/userSlice";
 
 export function UserMenu(props) {
   const dispatch = useDispatch();
@@ -22,7 +21,7 @@ export function UserMenu(props) {
     setAnchorEl(null);
   };
   return (
-    <div className="login">
+    <div>
       <Tooltip title="Account settings">
         <IconButton
           onClick={handleClick}
@@ -72,7 +71,7 @@ export function UserMenu(props) {
       >
         <MenuItem
           onClick={() => {
-            dispatch(selectMenu("setting"));
+            dispatch(userMenu("setting"));
           }}
         >
           <ListItemIcon>
@@ -83,7 +82,7 @@ export function UserMenu(props) {
         <MenuItem
           onClick={() => {
             dispatch(logout({ login: false }));
-            dispatch(selectMenu("logout"));
+            dispatch(userMenu("logout"));
           }}
         >
           <ListItemIcon>

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { closeDialog, selectMenu } from "../slices/dialogSlice";
+import { openDialog, selectOption } from "../slices/dialogSlice";
 import { DialogOption } from "./DialogOption";
 import "../style/dialog.scss";
 
@@ -9,21 +9,21 @@ export function Dialog() {
 
   if (dialog === true) {
     return (
-      <div className="auth-popup-container">
-        <div className="auth-popup">
+      <div className="dialog-container">
+        <div className="dialog-popup">
           <div>
             <button
               className="close"
               onClick={() => {
-                dispatch(closeDialog(false));
-                dispatch(selectMenu(""));
+                dispatch(openDialog(false));
+                dispatch(selectOption(""));
               }}
             >
               &times;
             </button>
 
             <lottie-player
-              src="https://assets8.lottiefiles.com/packages/lf20_mddapymk.json"
+              src="https://assets9.lottiefiles.com/packages/lf20_k0pkuj13.json"
               autoplay
               loop
               mode="normal"
