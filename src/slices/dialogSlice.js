@@ -8,10 +8,7 @@ export const dialogSlice = createSlice({
         openDialog:(state, action) => {
             state.value.open = action.payload;
         },
-        closeDialog:(state, action) => {
-            state.value.open = action.payload;
-        },
-        selectMenu:(state, action) => {
+        selectOption:(state, action) => {
             state.value.option = action.payload;
         }
 
@@ -19,5 +16,5 @@ export const dialogSlice = createSlice({
     }
 })
 
-export const { openDialog, closeDialog, selectMenu } = dialogSlice.actions;
+export const { openDialog, selectOption } = dialogSlice.actions;
 export default dialogSlice.reducer;
