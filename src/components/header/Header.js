@@ -15,7 +15,7 @@ export function Header() {
   return (
     <header>
       <div className="tool-bar">
-        <div className="logo">RealD</div>
+        <h1 className="logo">RealD</h1>
           {headerButton}
       </div>
     </header>
