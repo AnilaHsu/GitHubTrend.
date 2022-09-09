@@ -1,82 +1,104 @@
 import { useDispatch, useSelector } from "react-redux";
-import { openDialog, selectMenu } from "../slices/dialogSlice";
+import { openDialog, selectOption } from "../slices/dialogSlice";
 import { userLogin } from "../slices/userSlice";
 import "../style/dialogOption.scss";
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export function DialogOption() {
   const dispatch = useDispatch();
   const option = useSelector((state) => state.dialog.value.option);
 
+  let dialogContent;
   if (option === "") {
-    return (
-      <div className="auth-content">
-        <h3 style={{ textAlign: "center" }}>登入或註冊帳號</h3>
-        <div className="auth-session">
+    dialogContent = (
+      <div>
+        <div className="dialog-text">
+          <h3 className="dialog-title">RealD</h3>
+          <p className="dialog-subtitle">Login or Sign up</p>
+        </div>
+        <div className="button-block">
           <button
-            className="auth-button"
+            className="login-button"
             onClick={() => {
-              dispatch(selectMenu("login"));
+              dispatch(selectOption("login"));
             }}
           >
-            登入
+            Login
           </button>
           <button
-            className="auth-button"
+            className="register-button"
             onClick={() => {
-              dispatch(selectMenu("register"));
+              dispatch(selectOption("register"));
             }}
           >
-            註冊
+            Sign up
           </button>
         </div>
       </div>
     );
   } else if (option === "login") {
-    return (
-      <div className="auth-content">
+    dialogContent = (
+      <div>
         <button
           className="back"
           onClick={() => {
-            dispatch(selectMenu(""));
+            dispatch(selectOption(""));
           }}
         >
-          &lt;
+          <FontAwesomeIcon icon={regular("circle-left")} />
         </button>
-        <h3 style={{ textAlign: "center" }}>歡迎回到 RealD !</h3>
-        <div className="auth-session">
-          <button
-            className="auth-button"
-            onClick={() => {
-              dispatch(userLogin());
-              dispatch(openDialog(false));
-            }}
-          >
-            以 Google 帳戶登入
-          </button>
+        <div>
+          <h3 className="dialog-title">Login</h3>
+          <p className="dialog-subtitle">Welcome back to RealD!</p>
         </div>
+          <div className="button-block">
+            <button
+              className="login-button"
+              onClick={() => {
+                dispatch(userLogin());
+                dispatch(selectOption(""));
+                dispatch(openDialog(false));
+              }}
+            >
+              Sign in with Google
+            </button>
+          </div>
       </div>
     );
   } else if (option === "register") {
-    return (
-      <div className="auth-content">
+    dialogContent = (
+      <div className="register-block">
         <button
           className="back"
           onClick={() => {
-            dispatch(selectMenu(""));
+            dispatch(selectOption(""));
           }}
         >
-          &lt;
+          <FontAwesomeIcon icon={regular("circle-left")} />
         </button>
-        <h3 style={{ textAlign: "center" }}>歡迎來到 RealD !</h3>
-        <div className="register-session">
-          <button className="auth-button"> 以 Google 帳戶註冊 </button>
-          <hr></hr>
+        <div>
+          <h3 className="dialog-title">Sign up</h3>
+          <p className="dialog-subtitle">Hi,Welcome to RealD!</p>
         </div>
+        <div className="button-block">
+        <button 
+          className="register-button"
+          onClick={() => {
+            dispatch(userLogin());
+            dispatch(selectOption(""));
+            dispatch(openDialog(false));
+          }}
+        >
+          Sign up with Google account
+          </button>
+        </div>
+        
       </div>
     );
   }
+
+  return <div className="dialog-content">{dialogContent}</div>;
 }
 
 export default DialogOption;
