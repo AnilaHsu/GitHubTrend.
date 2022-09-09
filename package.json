@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
-    "@redux-devtools/core": "^3.13.1"
+    "@redux-devtools/core": "^3.13.1",
+    "ts-migrate": "^0.1.33"
   }
 }

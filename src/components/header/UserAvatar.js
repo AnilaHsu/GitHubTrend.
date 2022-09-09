@@ -1,4 +1,4 @@
-import "../../style/uesrAvatar.scss";
+import "../../style/userAvatar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { UserMenu } from "./UserMenu";
