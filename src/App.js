@@ -26,8 +26,9 @@ function App() {
 
   return (
     <div className="container">
-        <Header />
         <Dialog />
+        <Header />
+        
         <HomePage />
     </div>
   );
