@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState: any = [];
 export const trendSlice = createSlice({
   name: "trend",
   initialState: { value: initialState },

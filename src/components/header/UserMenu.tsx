@@ -9,20 +9,23 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logout, userMenu } from "../../slices/userSlice";
 
-export function UserMenu(props) {
+export function UserMenu(props: any) {
   const dispatch = useDispatch();
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
+  const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div>
+      {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
       <Tooltip title="Account settings">
+        {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <IconButton
           onClick={handleClick}
           size="small"
@@ -34,6 +37,7 @@ export function UserMenu(props) {
           {props.avatar}
         </IconButton>
       </Tooltip>
+      {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
       <Menu
         anchorEl={anchorEl}
         id="account-menu"
@@ -69,23 +73,29 @@ export function UserMenu(props) {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
+        {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <MenuItem
           onClick={() => {
             dispatch(userMenu("setting"));
           }}
         >
+          {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
           <ListItemIcon>
+            {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
             <Settings fontSize="small" />
           </ListItemIcon>
           Settings
         </MenuItem>
+        {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <MenuItem
           onClick={() => {
             dispatch(logout({ login: false }));
             dispatch(userMenu("logout"));
           }}
         >
+          {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
           <ListItemIcon>
+            {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
             <Logout fontSize="small" />
           </ListItemIcon>
           Logout

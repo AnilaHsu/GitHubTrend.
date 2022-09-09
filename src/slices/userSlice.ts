@@ -32,14 +32,17 @@ export const userSlice = createSlice({
       })
       .addCase(userLogin.rejected, (state, action) => {
         state.value.loginStatus = 'failed'
+        // @ts-expect-error TS(2322): Type 'string | undefined' is not assignable to typ... Remove this comment to see the full error message
         state.value.error = action.error.message
       })
   }
 });
 
 export const userLogin = createAsyncThunk("user/userLoginData", async () => {
+  // @ts-expect-error TS(2345): Argument of type 'Auth | GoogleAuthProvider' is no... Remove this comment to see the full error message
   const result = await signInWithPopup(auth, provider);
   const credential = GoogleAuthProvider.credentialFromResult(result);
+  // @ts-expect-error TS(2531): Object is possibly 'null'.
   const token = credential.accessToken;
   const user = result.user;
   console.log("token:", token, "user:", user);
