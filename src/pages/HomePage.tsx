@@ -1,12 +1,13 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../redux";
 import "../style/homePage.scss";
 import TrendFilter from "../components/TrendFilter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid, regular } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { TrendStateType } from "../type";
 
 export function HomePage() {
-  const trendingData = useSelector((state) => state.trend.value);
-  const listItems = trendingData.map((trend, index) => {
+  const trendingData = useAppSelector((state) => state.trend);
+  const listItems: JSX.Element[] = trendingData.map((trend:TrendStateType, index:number) => {
     return (
       <div className="trend-row" key={index}>
         <div className="trend-left">

@@ -1,15 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux";
 import { openDialog, selectOption } from "../slices/dialogSlice";
 import { userLogin } from "../slices/userSlice";
 import "../style/dialogOption.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 
-export function DialogOption() {
-  const dispatch = useDispatch();
-  const option = useSelector((state) => state.dialog.value.option);
 
-  let dialogContent;
+export function DialogOption() {
+  const dispatch = useAppDispatch();
+  const option = useAppSelector((state) => state.dialog.option);
+
+  let dialogContent: JSX.Element | undefined;
   if (option === "") {
     dialogContent = (
       <div>
@@ -93,7 +94,6 @@ export function DialogOption() {
           Sign up with Google account
           </button>
         </div>
-        
       </div>
     );
   }

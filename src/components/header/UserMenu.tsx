@@ -6,15 +6,17 @@ import Tooltip from "@mui/material/Tooltip";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../redux";
 import { logout, userMenu } from "../../slices/userSlice";
+import { AvatarProps } from "../../type";
 
-export function UserMenu(props) {
-  const dispatch = useDispatch();
+const unLoginState =  { login: false, name:null, email:null, photo:null }
+export function UserMenu({avatar}: AvatarProps) {
+  const dispatch = useAppDispatch();
 
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
@@ -31,7 +33,7 @@ export function UserMenu(props) {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
         >
-          {props.avatar}
+          {avatar}
         </IconButton>
       </Tooltip>
       <Menu
@@ -81,7 +83,7 @@ export function UserMenu(props) {
         </MenuItem>
         <MenuItem
           onClick={() => {
-            dispatch(logout({ login: false }));
+            dispatch(logout(unLoginState));
             dispatch(userMenu("logout"));
           }}
         >

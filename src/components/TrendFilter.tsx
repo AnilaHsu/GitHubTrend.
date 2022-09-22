@@ -1,28 +1,28 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../redux";
 import { selectLanguage } from "../slices/filterSlice";
 import "../style/trendFilter.scss";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 
 export function TrendFilter() {
-  const dispatch = useDispatch();
-  //   const language = useSelector((state) => state.filter.value.language) 
-  const trendingData = useSelector((state) => state.trend.value);
-  const allLanguages = trendingData.map((trend) => trend.language);
-  const distinctLanguages = [...new Set(allLanguages)];
+  const dispatch = useAppDispatch();
+  const trendingData = useAppSelector((state) => state.trend);
+  const allLanguages:string[] = trendingData.map(trend => trend.language);
+  const distinctLanguages:string[] = [...new Set(allLanguages)];
 
-  const [language, setLanguage] = useState("");
-  const [inputValue, setInputValue] = useState("");
+  const [language, setLanguage] = useState<string | null>("");
+  const [inputValue, setInputValue] = useState<string>("");
 
   return (
+    
     <Autocomplete
       id="free-solo-demo"
       size="small"
       freeSolo
       value={language}
-      onChange={(event, newValue) => {
+      onChange={(event: any, newValue: string | null):void => {
         setLanguage(newValue)
         dispatch(selectLanguage(newValue))
       }}

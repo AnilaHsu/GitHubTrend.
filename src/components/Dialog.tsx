@@ -1,13 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch } from "../redux";
 import { openDialog, selectOption } from "../slices/dialogSlice";
 import { DialogOption } from "./DialogOption";
 import "../style/dialog.scss";
 
 export function Dialog() {
-  const dialog = useSelector((state) => state.dialog.value.open);
-  const dispatch = useDispatch();
-
-  if (dialog === true) {
+  const dispatch = useAppDispatch();
     return (
       <div className="dialog-container">
         <div className="dialog-popup">
@@ -35,5 +32,5 @@ export function Dialog() {
       </div>
     );
   }
-}
+
 export default Dialog;

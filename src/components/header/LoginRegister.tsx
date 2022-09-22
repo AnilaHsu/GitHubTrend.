@@ -1,9 +1,9 @@
-import "../../style/loginRegister.scss";
+import { useAppDispatch } from "../../redux";
 import { openDialog } from "../../slices/dialogSlice";
-import { useDispatch } from "react-redux";
+import "../../style/loginRegister.scss";
 
 export function LoginRegister() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   return (
     <div className="login-register">
       <button

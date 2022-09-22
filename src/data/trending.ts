@@ -1,5 +1,7 @@
+import { TrendStateType } from '../type'
+
 export function fetchTrends() {
-  const trending = Array(10).fill({
+  const trending:TrendStateType[] = Array(10).fill({
     title: "title1",
     introduction: "introduction1",
     language: "JS",

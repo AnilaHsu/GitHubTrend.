@@ -1,49 +1,58 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit'
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { FirebaseAuth } from "../firebase/firebase";
+import { firebaseAuth } from "../firebase/firebase";
 import { LOGIN_STATE } from "../constants/local-storage";
+import { LoginStateType, UserState } from "../type";
 
-const [auth, provider] = FirebaseAuth();
 
-const initialState = { loginInfo: { login: false }, loginStatus: "", error: "", userMenu: "" };
+
+const {auth, provider} = firebaseAuth();
+const unLoginInfo = { login: false, name:null, email:null, photo:null }
+const initialState: UserState = { loginInfo: unLoginInfo , loginStatus: "", error: "", userMenu: "" };
+
 export const userSlice = createSlice({
   name: "user",
-  initialState: { value: initialState },
+  initialState: initialState,
   reducers: {
-    login: (state, action) => {
-      state.value.loginInfo = action.payload;
+    login: (state, action: PayloadAction<LoginStateType>) => {
+      state.loginInfo = action.payload;
     },
-    logout: (state, action) => {
-      state.value.loginInfo = action.payload;
+    logout: (state, action: PayloadAction<LoginStateType>) => {
+      state.loginInfo = action.payload;
     },
-    userMenu: (state, action) => {
-      state.value.userMenu = action.payload;
+    userMenu: (state, action: PayloadAction<string>) => {
+      state.userMenu = action.payload;
     },
   },
   extraReducers(builder) {
     builder
       .addCase(userLogin.pending, (state, action) => {
-        state.value.loginStatus = 'loading'
+        state.loginStatus = 'loading'
       })
       .addCase(userLogin.fulfilled, (state, action) => {
-        state.value.loginStatus = 'succeeded'
-        state.value.loginInfo = action.payload;
+        state.loginStatus = 'succeeded'
+        state.loginInfo = action.payload ?? unLoginInfo;
       })
       .addCase(userLogin.rejected, (state, action) => {
-        state.value.loginStatus = 'failed'
-        state.value.error = action.error.message
+        state.loginStatus = 'failed'
+        state.error = action.error.message ?? ''
       })
   }
 });
 
+
 export const userLogin = createAsyncThunk("user/userLoginData", async () => {
   const result = await signInWithPopup(auth, provider);
   const credential = GoogleAuthProvider.credentialFromResult(result);
+  if (!credential) {
+    return
+  }
   const token = credential.accessToken;
   const user = result.user;
   console.log("token:", token, "user:", user);
-  const loginState = {
+  const loginState: LoginStateType = {
     login: true,
     name: user.displayName,
     email: user.email,
