@@ -15,7 +15,7 @@ function App() {
   const dispatch = useAppDispatch();
   const trendingData: TrendStateType[] = fetchTrends()
   const dialog = useAppSelector((state) => state.dialog.open);
-  
+  console.log(trendingData)
 
   useEffect(() => {
     const loginInfoString: string | null = localStorage.getItem(LOGIN_STATE)

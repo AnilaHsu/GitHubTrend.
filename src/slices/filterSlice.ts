@@ -3,8 +3,6 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { FilterState } from "../type";
 
 
-
-
 const initialState: FilterState = { language: null };
 export const filterSlice = createSlice({
   name: "filter",

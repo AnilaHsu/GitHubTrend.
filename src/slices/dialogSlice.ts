@@ -3,7 +3,6 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { DialogState } from "../type";
 
 
-
 const initialState: DialogState = { open:false, option:"" }
 export const dialogSlice = createSlice({
     name:"dialog",
