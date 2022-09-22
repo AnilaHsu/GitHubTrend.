@@ -1,12 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit'
+import { FilterState } from "../type";
 
-const initialState = { language: "All" };
+
+
+
+const initialState: FilterState = { language: null };
 export const filterSlice = createSlice({
   name: "filter",
-  initialState: { value: initialState },
+  initialState: initialState,
   reducers: {
-    selectLanguage: (state, actions) => {
-      state.value.language = actions.payload;
+    selectLanguage: (state, actions: PayloadAction<string | null>) => {
+      state.language = actions.payload;
     },
   },
 });

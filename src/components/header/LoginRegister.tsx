@@ -1,13 +1,11 @@
-import "../../style/loginRegister.scss";
+import { useAppDispatch } from "../../redux";
 import { openDialog } from "../../slices/dialogSlice";
-import { useDispatch } from "react-redux";
+import "../../style/loginRegister.scss";
 
 export function LoginRegister() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   return (
-    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div className="login-register">
-      {/* @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
       <button
         className="login-register-button"
         onClick={() => {

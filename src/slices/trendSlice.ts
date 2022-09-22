@@ -1,12 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit'
+import { TrendStateType } from "../type";
 
-const initialState: any = [];
+
+const initialState: TrendStateType[] = [];
 export const trendSlice = createSlice({
   name: "trend",
-  initialState: { value: initialState },
+  initialState: initialState,
   reducers: {
-    loadData: (state, actions) => {
-      state.value = actions.payload;
+    loadData: (state, actions: PayloadAction<TrendStateType[]>) => {
+      state = actions.payload;
     },
   },
 });

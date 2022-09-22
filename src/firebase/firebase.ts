@@ -3,9 +3,9 @@ import { GoogleAuthProvider, getAuth } from "firebase/auth";
 import { config } from "./firebaseConfig";
 
 
-export function FirebaseAuth(){
+export function firebaseAuth() {
 
- const firebaseConfig = config();
+    const firebaseConfig = config();
   
     initializeApp(firebaseConfig);
     const provider = new GoogleAuthProvider();    
@@ -13,7 +13,10 @@ export function FirebaseAuth(){
     const auth = getAuth();
     auth.languageCode = 'it';
    
-    return [auth,provider]
+    return {
+        auth, 
+        provider
+    }
 
 } 
 

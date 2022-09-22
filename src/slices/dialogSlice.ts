@@ -1,15 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from '@reduxjs/toolkit'
+import { DialogState } from "../type";
 
-const initialState = {open:false,option:""}
+
+
+const initialState: DialogState = { open:false, option:"" }
 export const dialogSlice = createSlice({
     name:"dialog",
-    initialState:{ value:initialState },
+    initialState: initialState,
     reducers:{
-        openDialog:(state, action) => {
-            state.value.open = action.payload;
+        openDialog:(state, action: PayloadAction<boolean>) => {
+            state.open = action.payload;
         },
-        selectOption:(state, action) => {
-            state.value.option = action.payload;
+        selectOption:(state, action: PayloadAction<string>) => {
+            state.option = action.payload;
         }
 
         
