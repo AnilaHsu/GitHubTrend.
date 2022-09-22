@@ -1,6 +1,6 @@
 
 export type AvatarProps = {
-    avatar:JSX.Element
+    avatar: JSX.Element
 }  
  
 export type TrendStateType = {

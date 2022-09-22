@@ -4,12 +4,14 @@ import { TrendStateType } from "../type";
 
 
 const initialState: TrendStateType[] = [];
+
 export const trendSlice = createSlice({
   name: "trend",
   initialState: initialState,
   reducers: {
     loadData: (state, actions: PayloadAction<TrendStateType[]>) => {
-      state = actions.payload;
+      state.push(...actions.payload)
+      console.log(actions.payload)
     },
   },
 });
