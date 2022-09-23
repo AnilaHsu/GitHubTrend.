@@ -6,10 +6,15 @@ import { solid, regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { TrendStateType } from "../type";
 
 export function HomePage() {
-  const state = useAppSelector((state) => state);
-  console.log(state)
-  const trendingData = useAppSelector((state) => state.trend);
+  let trendingData = useAppSelector((state) => state.trend);
+  const selectLanguage = useAppSelector((state) => state.filter.language)
 
+  if (selectLanguage){
+    trendingData = trendingData.filter((trend) => {
+      return trend.language === selectLanguage;
+    })
+  }
+  
   const listItems: JSX.Element[] = trendingData.map((trend:TrendStateType, index:number) => {
     return (
       <div className="trend-row" key={index}>
@@ -39,14 +44,12 @@ export function HomePage() {
     );
   });
   return (
-    <div className="trend-box">
-      <div>
-        <h1 className="trend-title">Trending</h1>
-      </div>
-      <div className="trend-content">
-        <TrendFilter />
-        <div className="trend-table">{listItems}</div>
-      </div>
+    <div className="trend-container">
+      <h1 className="trend-title">Trending</h1>
+        <div className="trend-table">
+          <TrendFilter />
+          {listItems}
+        </div>
     </div>
   );
 }
