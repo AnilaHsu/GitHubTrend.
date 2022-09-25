@@ -5,13 +5,11 @@ import { userMiddleware } from "./middleware/localStorage";
 import dialogReducer from "./slices/dialogSlice";
 import userReducer from "./slices/userSlice";
 import trendReducer from "./slices/trendSlice";
-import filterReducer from "./slices/filterSlice";
 
 const rootReducer = combineReducers({
   dialog: dialogReducer,
   user: userReducer,
   trend: trendReducer,
-  filter: filterReducer,
 })
 
 export const store = configureStore({

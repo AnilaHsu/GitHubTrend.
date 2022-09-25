@@ -9,8 +9,17 @@ export type TrendStateType = {
     language: string,
     total_star: number,
     fork: number,
+    dataRange: string
 }
 
+export type TrendState = {
+  trendData: TrendStateType[],
+  allLanguages: string[],
+  selectedLanguage: string,
+  selectedDateRange: string,
+  status: string
+  error: string
+}
 
 export type LoginStateType = {
   login: boolean
@@ -24,10 +33,6 @@ export type UserState = {
   loginStatus: string,
   error: string,
   userMenu: string 
-}
-
-export type FilterState = {
-    language: string | null
 }
 
 export type DialogState = {
