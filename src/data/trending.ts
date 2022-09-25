@@ -7,6 +7,7 @@ export function fetchTrends() {
     language: "TS",
     total_star: 2100,
     fork: 120,
+    dataRange: 'Daily'
   },
   {
     title: "title2",
@@ -14,6 +15,7 @@ export function fetchTrends() {
     language: "JS",
     total_star: 600,
     fork: 120,
+    dataRange: 'Weekly'
   },
   {
     title: "title3",
@@ -21,6 +23,12 @@ export function fetchTrends() {
     language: "Python",
     total_star: 200,
     fork: 120,
+    dataRange: 'Monthly'
   }];
   return trending;
+}
+
+export function fetchLanguages(){
+  const languages = ['TS', 'Python']
+  return languages
 }
