@@ -43,24 +43,27 @@ export const userSlice = createSlice({
 });
 
 
-export const userLogin = createAsyncThunk("user/userLoginData", async () => {
-  const result = await signInWithPopup(auth, provider);
-  const credential = GoogleAuthProvider.credentialFromResult(result);
-  if (!credential) {
-    return
+export const userLogin = createAsyncThunk(
+  "user/userLoginData",
+  async () => {
+    const result = await signInWithPopup(auth, provider);
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    if (!credential) {
+      return
+    }
+    const token = credential.accessToken;
+    const user = result.user;
+    console.log("token:", token, "user:", user);
+    const loginState: LoginStateType = {
+      login: true,
+      name: user.displayName,
+      email: user.email,
+      photo: user.photoURL,
+    };
+    localStorage.setItem(LOGIN_STATE, JSON.stringify(loginState));
+    return loginState;
   }
-  const token = credential.accessToken;
-  const user = result.user;
-  console.log("token:", token, "user:", user);
-  const loginState: LoginStateType = {
-    login: true,
-    name: user.displayName,
-    email: user.email,
-    photo: user.photoURL,
-  };
-  localStorage.setItem(LOGIN_STATE, JSON.stringify(loginState));
-  return loginState;
-});
+);
 
 export const { login, logout, userMenu } = userSlice.actions;
 export default userSlice.reducer;

@@ -13,9 +13,7 @@ export const dialogSlice = createSlice({
         },
         selectOption:(state, action: PayloadAction<string>) => {
             state.option = action.payload;
-        }
-
-        
+        } 
     }
 })
 
