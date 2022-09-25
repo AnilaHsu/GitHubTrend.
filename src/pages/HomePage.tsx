@@ -6,15 +6,7 @@ import { solid, regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { TrendStateType } from "../type";
 
 export function HomePage() {
-  let trendingData = useAppSelector((state) => state.trend);
-  const selectLanguage = useAppSelector((state) => state.filter.language)
-
-  if (selectLanguage){
-    trendingData = trendingData.filter((trend) => {
-      return trend.language === selectLanguage;
-    })
-  }
-  
+  let trendingData = useAppSelector((state) => state.trend.trendData);
   const listItems: JSX.Element[] = trendingData.map((trend:TrendStateType, index:number) => {
     return (
       <div className="trend-row" key={index}>
