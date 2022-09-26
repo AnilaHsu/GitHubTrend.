@@ -9,8 +9,8 @@ import { LoginStateType, UserState } from "../type";
 
 
 const {auth, provider} = firebaseAuth();
-const unLoginInfo: LoginStateType = { login: false, name: null, email: null, photo: null }
-const initialState: UserState = { loginInfo: unLoginInfo, loginStatus: "", error: "", userMenu: "" };
+const notLoginInfo: LoginStateType = { login: false, name: null, email: null, photo: null }
+const initialState: UserState = { loginInfo: notLoginInfo, loginStatus: "", error: "", userMenu: "" };
 
 export const userSlice = createSlice({
   name: "user",
@@ -33,7 +33,7 @@ export const userSlice = createSlice({
       })
       .addCase(userLogin.fulfilled, (state, action) => {
         state.loginStatus = 'succeeded'
-        state.loginInfo = action.payload ?? unLoginInfo;
+        state.loginInfo = action.payload ?? notLoginInfo;
       })
       .addCase(userLogin.rejected, (state, action) => {
         state.loginStatus = 'failed'
