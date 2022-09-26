@@ -20,11 +20,11 @@ export function UserAvatar() {
     userImage = (
       <UserMenu
         avatar={
-        <FontAwesomeIcon
-          icon={regular("circle-user")}
-          className="user-icon"
-        />
-      }
+          <FontAwesomeIcon
+            icon={regular("circle-user")}
+            className="user-icon"
+          />
+        }
       /> 
       )
   }

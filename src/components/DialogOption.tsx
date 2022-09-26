@@ -53,18 +53,18 @@ export function DialogOption() {
           <h3 className="dialog-title">Login</h3>
           <p className="dialog-subtitle">Welcome back to RealD!</p>
         </div>
-          <div className="button-block">
-            <button
-              className="login-button"
-              onClick={() => {
-                dispatch(userLogin());
-                dispatch(selectOption(""));
-                dispatch(openDialog(false));
-              }}
-            >
-              Sign in with Google
-            </button>
-          </div>
+        <div className="button-block">
+          <button
+            className="login-button"
+            onClick={() => {
+              dispatch(userLogin());
+              dispatch(selectOption(""));
+              dispatch(openDialog(false));
+            }}
+          >
+            Sign in with Google
+          </button>
+        </div>
       </div>
     );
   } else if (option === "register") {
@@ -83,21 +83,20 @@ export function DialogOption() {
           <p className="dialog-subtitle">Hi,Welcome to RealD!</p>
         </div>
         <div className="button-block">
-        <button 
-          className="register-button"
-          onClick={() => {
-            dispatch(userLogin());
-            dispatch(selectOption(""));
-            dispatch(openDialog(false));
-          }}
-        >
-          Sign up with Google account
+          <button 
+            className="register-button"
+            onClick={() => {
+              dispatch(userLogin());
+              dispatch(selectOption(""));
+              dispatch(openDialog(false));
+            }}
+          >
+            Sign up with Google account
           </button>
         </div>
       </div>
     );
   }
-
   return <div className="dialog-content">{dialogContent}</div>;
 }
 
