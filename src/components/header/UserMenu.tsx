@@ -10,7 +10,7 @@ import { useAppDispatch } from "../../redux";
 import { logout, userMenu } from "../../slices/userSlice";
 import { AvatarProps } from "../../type";
 
-const unLoginState =  { login: false, name:null, email:null, photo:null }
+const unLoginState =  { login: false, name: null, email: null, photo: null }
 export function UserMenu({avatar}: AvatarProps) {
   const dispatch = useAppDispatch();
 

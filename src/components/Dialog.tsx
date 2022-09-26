@@ -18,7 +18,6 @@ export function Dialog() {
             >
               &times;
             </button>
-
             <lottie-player
               src="https://assets9.lottiefiles.com/packages/lf20_k0pkuj13.json"
               autoplay
