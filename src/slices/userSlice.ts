@@ -9,8 +9,8 @@ import { LoginStateType, UserState } from "../type";
 
 
 const {auth, provider} = firebaseAuth();
-const unLoginInfo = { login: false, name:null, email:null, photo:null }
-const initialState: UserState = { loginInfo: unLoginInfo , loginStatus: "", error: "", userMenu: "" };
+const unLoginInfo: LoginStateType = { login: false, name: null, email: null, photo: null }
+const initialState: UserState = { loginInfo: unLoginInfo, loginStatus: "", error: "", userMenu: "" };
 
 export const userSlice = createSlice({
   name: "user",
