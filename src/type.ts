@@ -1,27 +1,45 @@
 
 export type AvatarProps = {
-    avatar: JSX.Element
+  avatar: JSX.Element
 }  
  
-export type TrendStateType = {
-    title: string,
-    introduction: string,
-    language: string,
-    total_star: number,
-    fork: number,
-    dataRange: string
+export interface GitHubTrend {
+  author: string,
+  name: string,
+  description: string,
+  programmingLanguage: string,
+  stars: number,
+  forks: number,
+  starsInRange: number
+}
+
+export type TrendArguments = {
+  lang: string,
+  range: string
+}
+
+export interface GitHubLanguage {
+  name: string,
+  code: string
+}
+
+export type DataRangeType = {
+  name: string,
+  code: string
 }
 
 export type TrendState = {
-  trendData: TrendStateType[],
-  allLanguages: string[],
-  selectedLanguage: string,
-  selectedDateRange: string,
-  status: string
+  trendData: GitHubTrend[],
+  languages: GitHubLanguage[],
+  selectedLang: string,
+  langCode: string,
+  selectedRange: string,
+  rangeCode: string,
+  status: string,
   error: string
 }
 
-export type LoginStateType = {
+export interface LoginStateType {
   login: boolean
   name: string | null,
   email: string | null,         
@@ -36,6 +54,6 @@ export type UserState = {
 }
 
 export type DialogState = {
-    open: boolean,
-    option: string
+  open: boolean,
+  option: string
 }
