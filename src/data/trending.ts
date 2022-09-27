@@ -1,34 +1,22 @@
-import { TrendStateType } from '../type'
+import { GitHubLanguage, GitHubTrend } from '../type'
+import axios from 'axios'
 
-export function fetchTrends() {
-  const trending:TrendStateType[] = [{
-    title: "title1",
-    introduction: "introduction1",
-    language: "TS",
-    total_star: 2100,
-    fork: 120,
-    dataRange: 'Daily'
-  },
-  {
-    title: "title2",
-    introduction: "introduction2",
-    language: "JS",
-    total_star: 600,
-    fork: 120,
-    dataRange: 'Weekly'
-  },
-  {
-    title: "title3",
-    introduction: "introduction3",
-    language: "Python",
-    total_star: 200,
-    fork: 120,
-    dataRange: 'Monthly'
-  }];
-  return trending;
+
+export async function fetchGitHubTrends(lang: string, range: string): Promise<GitHubTrend[]> {
+  const response = await axios.get<GitHubTrend[]>('https://api.reald.app/trend/repos',{
+    params: {
+      lang: lang,
+      range: range
+    }
+  })
+  console.log('trend response:',response)
+  const trendData = response.data
+  return trendData
 }
 
-export function fetchLanguages(){
-  const languages = ['TS', 'Python']
+export async function fetchGitHubLanguages(): Promise<GitHubLanguage[]> {
+  const response = await axios.get<GitHubLanguage[]>('https://api.reald.app/trend/langs')
+  console.log('languages response:',response)
+  const languages = response.data
   return languages
 }
