@@ -1,27 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { TrendState, TrendStateType } from "../type";
+import { TrendArguments, TrendState } from "../type";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { fetchGitHubLanguages, fetchGitHubTrends } from "../data/trending";
 
 
-const initialState: TrendState = {trendData:[], allLanguages: [], selectedLanguage: "", selectedDateRange:"Daily" , status:"", error:"" };
+const initialState: TrendState = { trendData: [], languages: [], selectedLang: "", langCode: "",
+ selectedRange: "Daily" , rangeCode:"daily", status: "", error: "" };
 
 export const trendSlice = createSlice({
   name: "trend",
   initialState: initialState,
   reducers: {
-    loadData: (state, actions: PayloadAction<TrendStateType[]>) => {
-      state.trendData.length = 0
-      state.trendData.push(...actions.payload)
+    selectLanguage:(state, actions: PayloadAction<string>) => {
+      state.selectedLang = actions.payload;
     },
-    loadLanguages: (state,actions:PayloadAction<string[]>) => {
-      state.allLanguages = actions.payload;
-    },
-    selectLanguage: (state, actions: PayloadAction<string>) => {
-      state.selectedLanguage = actions.payload;
+    selectLangCode: (state, actions: PayloadAction<string>) => {
+      state.langCode = actions.payload;
     },
     selectDateRange: (state, actions: PayloadAction<string>) => {
-      state.selectedDateRange = actions.payload
+      state.selectedRange = actions.payload
+    },
+    selectRangeCode: (state, actions: PayloadAction<string>) => {
+      state.rangeCode = actions.payload
     }
   },
   extraReducers(builder) {
@@ -31,22 +32,32 @@ export const trendSlice = createSlice({
       })
       .addCase(fetchTrendData.fulfilled, (state, action) => {
         state.status = 'succeeded'
-        // state.trendData = action.payload;
+        state.trendData = action.payload;
+      })
+      .addCase(fetchLanguageData.fulfilled, (state, action) => {
+        state.languages = action.payload
       })
       .addCase(fetchTrendData.rejected, (state, action) => {
         state.status = 'failed'
         state.error = action.error.message ?? ''
       })
-  }
+  },
 });
 
 export const fetchTrendData = createAsyncThunk(
   'trend/filteredData', 
-  async ({language, date}:{language: string, date: string}) => {
-  //   const response = await fetchTrend(language,state.date)
-  //   return response.data
+  async ({lang, range}: TrendArguments) => {
+    const response = await fetchGitHubTrends(lang,range)
+    return response
+  }
+);
+export const fetchLanguageData = createAsyncThunk(
+  'trend/languages', 
+  async () => {
+    const response = await fetchGitHubLanguages();
+    return response
   }
 );
 
-export const { loadData, loadLanguages, selectLanguage, selectDateRange } = trendSlice.actions;
+export const { selectLanguage, selectLangCode, selectDateRange, selectRangeCode } = trendSlice.actions;
 export default trendSlice.reducer;
