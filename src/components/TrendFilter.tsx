@@ -1,16 +1,30 @@
-import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../redux";
-import { fetchTrendData, selectLanguage, selectDateRange } from "../slices/trendSlice";
 import "../style/trendFilter.scss";
+import { useAppDispatch, useAppSelector } from "../redux";
+import { fetchTrendData, selectLangCode, selectDateRange, selectLanguage, selectRangeCode } from "../slices/trendSlice";
 import Autocomplete from "@mui/material/Autocomplete";
+import { DataRangeType, GitHubLanguage } from "../type";
 
 export function TrendFilter() {
   const dispatch = useAppDispatch();
-  const allLanguages: string[] = useAppSelector((state) => state.trend.allLanguages);
-  const dateRange: string[] = ['Daily', 'This week', 'This month']
+  const languages: GitHubLanguage[] = useAppSelector((state) => state.trend.languages);
+  const language: string = useAppSelector((state) => state.trend.selectedLang);
+  const range: string = useAppSelector((state) => state.trend.selectedRange);
+  const langCode: string = useAppSelector((state) => state.trend.langCode)
+  const rangeCode: string = useAppSelector((state) => state.trend.rangeCode)
 
-  const [language, setLanguage] = useState<string>("");
-  const [date, setDate] = useState<string>("Daily");
+  const languageOption: string[] = languages.map((language: GitHubLanguage) => {
+    return language.name
+  })
+
+  const dateRange: DataRangeType[] = [
+    { name: "Daily", code: "daily" },
+    { name: "This week", code: "weekly" },
+    { name: "This month", code: "monthly" }
+    ];
+  
+  const rangeOption: string[] = dateRange.map((range: DataRangeType) => {
+    return range.name
+  })
 
   return (
     <div className="filter-container">
@@ -18,25 +32,32 @@ export function TrendFilter() {
         id="selectLanguage"
         size="small"
         sx={{
-          display: 'inline-block',
-          '& input': {
-            width: 100,
-            borderRadius: '10px',
-            bgcolor: 'background.paper',
+          display: "inline-block",
+          "& input": {
+            width: 200,
+            borderRadius: "10px",
+            bgcolor: "background.paper",
             color: (theme) =>
               theme.palette.getContrastText(theme.palette.background.paper),
           },
         }}
         value={language}
-        onChange={(event: any, newValue: string | null):void => {
-          setLanguage(newValue ?? "")
+        onChange={(event: any, newValue: string | null): void => {
           dispatch(selectLanguage(newValue ?? ""))
+
+          let code: string = ""
+          if (newValue) {
+            const index = languages.map(language => language.name).indexOf(newValue);
+            code = languages[index].code
+          }
+
+          dispatch(selectLangCode(code))
           dispatch(fetchTrendData({
-            language: newValue ?? '', 
-            date: date
+            lang: code, 
+            range: rangeCode
           }))
         }}
-        options={allLanguages}
+        options={languageOption}
         renderInput={(params) => 
           <div ref={params.InputProps.ref}>
             <input type="text" {...params.inputProps} placeholder="Language" className="input"
@@ -48,25 +69,32 @@ export function TrendFilter() {
         id="selectDataRange"
         size="small"
         sx={{
-          display: 'inline-block',
-          '& input': {
+          display: "inline-block",
+          "& input": {
             width: 100,
-            borderRadius: '10px',
-            bgcolor: 'background.paper',
+            borderRadius: "10px",
+            bgcolor: "background.paper",
             color: (theme) =>
               theme.palette.getContrastText(theme.palette.background.paper),
           },
         }}
-        value={date}
-        onChange={(event: any, newValue: string | null):void => {
-          setDate(newValue ?? "Daily") 
+        value={range}
+        onChange={(event: any, newValue: string | null): void => {
           dispatch(selectDateRange(newValue ?? "Daily"))
+
+          let code: string = "daily";
+          if (newValue) {
+            const index = dateRange.map(range => range.name).indexOf(newValue);
+            code = dateRange[index].code
+          }
+
+          dispatch(selectRangeCode(code))
           dispatch(fetchTrendData({
-            language: language,
-            date: newValue ?? "Daily"
+            lang: langCode,
+            range: code
           }))
         }}
-        options={dateRange}
+        options={rangeOption}
         renderInput={(params) => 
           <div ref={params.InputProps.ref}>
             <input type="text" {...params.inputProps} placeholder="Date Range" className="input"
@@ -75,7 +103,6 @@ export function TrendFilter() {
         }
       />
     </div>
-
   );
 }
 
