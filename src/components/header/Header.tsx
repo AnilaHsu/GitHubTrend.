@@ -9,9 +9,9 @@ export function Header() {
   const loginInfo = useAppSelector((state) => state.user.loginInfo);
   let headerButton: JSX.Element = <LoginRegister />;
 
-  if (loginInfo.login === false){
+  if (!loginInfo.login) {
     headerButton = <LoginRegister />
-  } else if (loginInfo.login === true) {
+  } else if (loginInfo.login) {
     headerButton = <UserAvatar />
   }
   return (
