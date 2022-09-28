@@ -6,19 +6,27 @@ import { firebaseAuth } from "../firebase/firebase";
 import { LOGIN_STATE } from "../constants/local-storage";
 import { LoginStateType, UserState } from "../type";
 
-
-
 const {auth, provider} = firebaseAuth();
-const notLoginInfo: LoginStateType = { login: false, name: null, email: null, photo: null }
-const initialState: UserState = { loginInfo: notLoginInfo, loginStatus: "", error: "", userMenu: "" };
+
+let loginInfoValue: LoginStateType = { 
+  login: false,
+  name: null,
+  email: null,
+  photo: null 
+}
+
+const loginInfoString: string | null = localStorage.getItem(LOGIN_STATE)
+
+if (loginInfoString) {
+  loginInfoValue = JSON.parse(loginInfoString);
+}
+
+const initialState: UserState = { loginInfo: loginInfoValue, loginStatus: "", error: "", userMenu: "" };
 
 export const userSlice = createSlice({
   name: "user",
   initialState: initialState,
   reducers: {
-    login: (state, action: PayloadAction<LoginStateType>) => {
-      state.loginInfo = action.payload;
-    },
     logout: (state, action: PayloadAction<LoginStateType>) => {
       state.loginInfo = action.payload;
     },
@@ -33,7 +41,7 @@ export const userSlice = createSlice({
       })
       .addCase(userLogin.fulfilled, (state, action) => {
         state.loginStatus = 'succeeded'
-        state.loginInfo = action.payload ?? notLoginInfo;
+        state.loginInfo = action.payload ?? loginInfoValue;
       })
       .addCase(userLogin.rejected, (state, action) => {
         state.loginStatus = 'failed'
@@ -65,6 +73,6 @@ export const userLogin = createAsyncThunk(
   }
 );
 
-export const { login, logout, userMenu } = userSlice.actions;
+export const { logout, userMenu } = userSlice.actions;
 export default userSlice.reducer;
 
