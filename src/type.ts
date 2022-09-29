@@ -14,8 +14,8 @@ export interface GitHubTrend {
 }
 
 export type TrendArguments = {
-  lang: string,
-  range: string
+  langCode: string,
+  rangeCode: string
 }
 
 export interface GitHubLanguage {
@@ -31,10 +31,11 @@ export type DataRangeType = {
 export type TrendState = {
   trendData: GitHubTrend[],
   languages: GitHubLanguage[],
-  selectedLang: string,
+  dateRange: DataRangeType[],
   langCode: string,
-  selectedRange: string,
+  langName: string,
   rangeCode: string,
+  rangeName: string,
   status: string,
   error: string
 }
