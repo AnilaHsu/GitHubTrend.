@@ -1,27 +1,21 @@
 import "../style/trendFilter.scss";
 import { useAppDispatch, useAppSelector } from "../redux";
-import { fetchTrendData, selectLangCode, selectDateRange, selectLanguage, selectRangeCode } from "../slices/trendSlice";
+import { fetchTrendData, selectLangCode, selectRangeCode } from "../slices/trendSlice";
 import Autocomplete from "@mui/material/Autocomplete";
 import { DataRangeType, GitHubLanguage } from "../type";
 
 export function TrendFilter() {
   const dispatch = useAppDispatch();
   const languages: GitHubLanguage[] = useAppSelector((state) => state.trend.languages);
-  const language: string = useAppSelector((state) => state.trend.selectedLang);
-  const range: string = useAppSelector((state) => state.trend.selectedRange);
+  const dateRange: DataRangeType[] = useAppSelector((state) => state.trend.dateRange);
   const langCode: string = useAppSelector((state) => state.trend.langCode)
   const rangeCode: string = useAppSelector((state) => state.trend.rangeCode)
+  const langName: string = useAppSelector((state) => state.trend.langName);
+  const rangeName: string = useAppSelector((state) => state.trend.rangeName);
 
   const languageOption: string[] = languages.map((language: GitHubLanguage) => {
     return language.name
   })
-
-  const dateRange: DataRangeType[] = [
-    { name: "Daily", code: "daily" },
-    { name: "This week", code: "weekly" },
-    { name: "This month", code: "monthly" }
-    ];
-  
   const rangeOption: string[] = dateRange.map((range: DataRangeType) => {
     return range.name
   })
@@ -41,20 +35,17 @@ export function TrendFilter() {
               theme.palette.getContrastText(theme.palette.background.paper),
           },
         }}
-        value={language}
+        value={langName}
         onChange={(event: any, newValue: string | null): void => {
-          dispatch(selectLanguage(newValue ?? ""))
-
           let code: string = ""
           if (newValue) {
-            const index = languages.map(language => language.name).indexOf(newValue);
-            code = languages[index].code
+            const lanItem = languages.find(item => item.name === newValue);
+            code = lanItem?.code ?? ""
           }
-
           dispatch(selectLangCode(code))
           dispatch(fetchTrendData({
-            lang: code, 
-            range: rangeCode
+            langCode: code, 
+            rangeCode: rangeCode
           }))
         }}
         options={languageOption}
@@ -78,20 +69,17 @@ export function TrendFilter() {
               theme.palette.getContrastText(theme.palette.background.paper),
           },
         }}
-        value={range}
+        value={rangeName}
         onChange={(event: any, newValue: string | null): void => {
-          dispatch(selectDateRange(newValue ?? "Daily"))
-
           let code: string = "daily";
           if (newValue) {
-            const index = dateRange.map(range => range.name).indexOf(newValue);
-            code = dateRange[index].code
+            const rangeItem = dateRange.find(item => item.name === newValue);
+            code = rangeItem?.code ?? "daily"
           }
-
           dispatch(selectRangeCode(code))
           dispatch(fetchTrendData({
-            lang: langCode,
-            range: code
+            langCode: langCode,
+            rangeCode: code
           }))
         }}
         options={rangeOption}
