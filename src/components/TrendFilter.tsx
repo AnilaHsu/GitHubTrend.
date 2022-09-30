@@ -21,7 +21,7 @@ export function TrendFilter() {
   })
 
   return (
-    <div className="filter-container">
+    <div className="trend-filter">
       <Autocomplete
         id="selectLanguage"
         size="small"
