@@ -1,34 +1,51 @@
 
-.trend-container {
-    padding: 60px 40px;
-    margin: auto;
-    max-width: 1000px;
-}
-
 .trend-title {
+    padding: 50px 20px;
     color: #2d2d2d;
     text-align: center;
+    background-color: #f3f3f3;
 }
 
+.trending {
+    padding: 20px;
+}
 
 .trend-table {
-    border: 2px solid #ababab;
+    max-width: 1000px;
+    border: 2px solid #cccccc;
     border-radius: 10px;
+    margin: 50px auto;
+}
+
+.no-data-container {
+    padding: 16px 40px;
+    border-top: 1px solid #cccccc;
+    display: flex;
+    justify-content: center;
 }
 
 .trend-row {
-    padding: 10px 40px;
-    border-top: 1px solid;
+    padding: 16px 30px;
+    border-top: 1px solid #cccccc;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
-.trend-right {
-    text-align: right;
-    display: flex;
+
+.repos-name {
+    margin: 0;
+    color: #1d478b;
 }
+
+.repos-describe {
+    margin: 10px 0;
+}
+
 .icon {
-    margin-right: 3px;
-    text-align: center;
+    margin: 0 6px 0 0;
+}
+
+.info {
+    margin: 0 10px 0 0;
 }
