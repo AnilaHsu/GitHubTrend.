@@ -20,12 +20,12 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="container">
+    <>
       { dialog && <Dialog /> }
         <Header />
         <HomePage />
         <Footer />
-    </div>
+    </>
   );
 }
 
