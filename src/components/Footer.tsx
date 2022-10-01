@@ -4,7 +4,7 @@ import "../style/footer.scss"
 function Footer() {
     return (
         <footer className='footer-container'>
-            <span>Copyright © RealD All rights reserved.</span>
+            <p>Copyright © RealD All rights reserved.</p>
         </footer>
     );
 }
