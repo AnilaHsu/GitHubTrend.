@@ -1,12 +1,13 @@
 
 .trend-filter {
     margin: 10px;
-    border-color: #2d2d2d;
     text-align: end;
 }
-.MuiAutocomplete-input {
-    border-color: #ababab;
+.css-r8erj6-MuiAutocomplete-root input,.css-mlmn5p-MuiAutocomplete-root input  {
+    border-color: #aeaeae;
+    border-style: groove;
 }
+
 .input {
     padding: 2px 10px;
     margin: 0 6px;
