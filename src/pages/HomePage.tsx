@@ -6,28 +6,35 @@ import { solid, regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { GitHubTrend } from "../type";
 
 export function HomePage() {
-  const languageName = useAppSelector((state) => state.trend.langName)
+  const languageName = useAppSelector((state) => state.trend.langName);
   const trendingData = useAppSelector((state) => state.trend.trendData);
   const listItems: JSX.Element[] = trendingData.map((trend: GitHubTrend, index: number) => {
     return (
       <div className="trend-row" key={index}>
         <div className="trend-left">
-          <h2 className="repos-name">{trend.author}/{trend.name}</h2>
+          <a className="trend-link" href={trend.link}>
+            <h2 className="repos-name">
+              <span>{trend.author}/</span> 
+              <span>{trend.name}</span>
+            </h2>
+          </a>
           <p className="repos-describe">{trend.description}</p>
+        </div>
+        <div className="trend-right">
           { trend.programmingLanguage && 
-              <span className="info">
+              <span className="other-info">
                 <FontAwesomeIcon icon={solid("code")} className="icon" /> 
                 {trend.programmingLanguage}
               </span>
           }
           { trend.stars &&
-              <span className="info">
+              <span className="other-info">
                 <FontAwesomeIcon icon={regular("star")} className="icon" /> 
                 {trend.stars}
               </span>
           }
           { trend.forks &&
-              <span className="info">
+              <span className="other-info">
                 <FontAwesomeIcon icon={solid("code-fork")} className="icon" /> 
                 {trend.forks} 
               </span>
@@ -43,7 +50,7 @@ export function HomePage() {
   return (
     <main>
       <div className="trend-title">
-        <h1>Trending</h1>
+        <h1>GitHub Trending</h1>
         <p>See what the GitHub community is most excited about today.</p>
       </div>
       <section className="trending">

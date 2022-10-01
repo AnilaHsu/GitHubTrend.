@@ -10,7 +10,8 @@ export interface GitHubTrend {
   programmingLanguage: string,
   stars: number,
   forks: number,
-  starsInRange: number
+  starsInRange: number,
+  link: string
 }
 
 export type TrendArguments = {
