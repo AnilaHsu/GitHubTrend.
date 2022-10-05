@@ -5,8 +5,7 @@ import "../style/dialogOption.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 
-
-export function DialogOption() {
+export function DialogOption(): JSX.Element {
   const dispatch = useAppDispatch();
   const option = useAppSelector((state) => state.dialog.option);
 
@@ -57,7 +56,7 @@ export function DialogOption() {
           <button
             className="login-button"
             onClick={() => {
-              dispatch(userLogin());
+              void dispatch(userLogin());
               dispatch(selectOption(""));
               dispatch(openDialog(false));
             }}
@@ -83,10 +82,10 @@ export function DialogOption() {
           <p className="dialog-subtitle">Hi,Welcome to RealD!</p>
         </div>
         <div className="button-block">
-          <button 
+          <button
             className="register-button"
             onClick={() => {
-              dispatch(userLogin());
+              void dispatch(userLogin());
               dispatch(selectOption(""));
               dispatch(openDialog(false));
             }}

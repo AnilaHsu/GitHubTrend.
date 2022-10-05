@@ -5,21 +5,21 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useAppDispatch } from "../../redux";
 import { logout, userMenu } from "../../slices/userSlice";
 import { AvatarProps } from "../../type";
 
-const unLoginState =  { login: false, name: null, email: null, photo: null }
-export function UserMenu({avatar}: AvatarProps) {
+const unLoginState = { login: false, name: null, email: null, photo: null };
+export function UserMenu({ avatar }: AvatarProps): JSX.Element {
   const dispatch = useAppDispatch();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClick = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (): void => {
     setAnchorEl(null);
   };
   return (

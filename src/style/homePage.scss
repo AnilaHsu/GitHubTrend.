@@ -1,68 +1,67 @@
-
 .trend-title {
-    padding: 50px 20px;
-    color: #2d2d2d;
-    text-align: center;
-    background-color: #f3f3f3;
+  padding: 50px 20px;
+  color: #2d2d2d;
+  text-align: center;
+  background-color: #f3f3f3;
 }
 
 .trending {
-    padding: 20px;
+  padding: 20px;
 }
 
 .trend-table {
-    max-width: 1000px;
-    border: 2px solid #cccccc;
-    border-radius: 10px;
-    margin: 50px auto;
-    padding-bottom: 10px;
+  max-width: 1000px;
+  border: 2px solid #cccccc;
+  border-radius: 10px;
+  margin: 50px auto;
+  padding-bottom: 10px;
 }
 
 .no-data-container {
-    padding: 16px 40px;
-    border-top: 1px solid #cccccc;
-    display: flex;
-    justify-content: center;
+  padding: 16px 40px;
+  border-top: 1px solid #cccccc;
+  display: flex;
+  justify-content: center;
 }
 
 .trend-row {
-    padding: 16px 20px;
-    border-top: 1px solid #cccccc;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+  padding: 16px 20px;
+  border-top: 1px solid #cccccc;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .trend-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .repos-name {
-    margin: 10px 0 0 0 ;
-    color: #1d478b;
-    display: flex;
-    flex-wrap: wrap;
+  margin: 10px 0 0 0;
+  color: #1d478b;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .repos-describe {
-    margin: 12px 0;
+  margin: 12px 0;
 }
 
 .icon {
-    margin: 0 6px 0 0;
+  margin: 0 6px 0 0;
 }
 
 .other-info {
-    margin: 4px;
-    text-align: end;
+  margin: 4px;
+  text-align: end;
 }
 
 .trend-left {
-    width: 60%;
+  width: 60%;
 }
 
 .trend-right {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }

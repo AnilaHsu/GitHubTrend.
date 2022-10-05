@@ -1,4 +1,6 @@
-export function config() {
+import { FirebaseOptions } from "firebase/app";
+
+export function config(): FirebaseOptions {
   return {
     apiKey: "AIzaSyD0HMTAfI1aHUFhImLDMH83PgxgJuvQjmc",
     authDomain: "reald-6f088.firebaseapp.com",

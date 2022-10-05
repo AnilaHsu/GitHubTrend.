@@ -1,3 +1,3 @@
-export const LOGIN_STATE: string = "loginState";
-export const LANG_STATE: string = 'langState'
-export const RANGE_STATE: string = "rangeState"
+export const LOGIN_STATE = "loginState";
+export const LANG_STATE = "langState";
+export const RANGE_STATE = "rangeState";
