@@ -4,17 +4,15 @@ import { regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { UserMenu } from "./UserMenu";
 import { useAppSelector } from "../../redux";
 
-export function UserAvatar() {
+export function UserAvatar(): JSX.Element {
   const photoUrl = useAppSelector((state) => state.user.loginInfo.photo);
   let userImage: JSX.Element;
 
-  if (photoUrl) {
+  if (photoUrl !== null) {
     userImage = (
       <UserMenu
-          avatar={
-            <img className="user-icon" alt="avatar" src={photoUrl} />
-          }
-        />
+        avatar={<img className="user-icon" alt="avatar" src={photoUrl} />}
+      />
     );
   } else {
     userImage = (
@@ -25,8 +23,8 @@ export function UserAvatar() {
             className="user-icon"
           />
         }
-      /> 
-      )
+      />
+    );
   }
   return <> {userImage} </>;
 }
