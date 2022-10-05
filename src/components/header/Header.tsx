@@ -13,9 +13,9 @@ export function Header(): JSX.Element {
     headerButton = <UserAvatar />;
   }
   return (
-    <header>
+    <header className="header">
       <div className="tool-bar">
-        <h1 className="logo">RealD</h1>
+        <h1 className="logo">Trend.</h1>
         {headerButton}
       </div>
     </header>
