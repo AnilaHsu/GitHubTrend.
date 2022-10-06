@@ -3,8 +3,8 @@ export interface AvatarProps {
 }
 
 export interface GitHubTrend {
-  author: string;
-  name: string;
+  author: string | null;
+  name: string | null;
   description: string | null;
   programmingLanguage: string | null;
   stars: number | null;
