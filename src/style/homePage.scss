@@ -1,5 +1,5 @@
 .trend-title {
-  padding: 50px 20px;
+  padding: 130px 20px 50px 20px;
   color: #2d2d2d;
   text-align: center;
   background-color: #f3f3f3;
@@ -42,6 +42,9 @@
   color: #1d478b;
   display: flex;
   flex-wrap: wrap;
+  &:hover {
+    color: #2f88cbdc;
+  }
 }
 
 .repos-describe {

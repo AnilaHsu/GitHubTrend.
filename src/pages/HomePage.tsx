@@ -25,19 +25,19 @@ export function HomePage(): JSX.Element {
             <p className="repos-describe">{trend.description}</p>
           </div>
           <div className="trend-right">
-            {trend.programmingLanguage !== null && (
+            {Boolean(trend.programmingLanguage) && (
               <span className="other-info">
                 <FontAwesomeIcon icon={solid("code")} className="icon" />
                 {trend.programmingLanguage}
               </span>
             )}
-            {trend.stars !== null && (
+            {Boolean(trend.stars) && (
               <span className="other-info">
                 <FontAwesomeIcon icon={regular("star")} className="icon" />
                 {trend.stars}
               </span>
             )}
-            {trend.forks !== null && (
+            {Boolean(trend.forks) && (
               <span className="other-info">
                 <FontAwesomeIcon icon={solid("code-fork")} className="icon" />
                 {trend.forks}
@@ -51,7 +51,7 @@ export function HomePage(): JSX.Element {
   const noData: JSX.Element = (
     <div className="no-data-container">
       It looks like we don&apos;t have any trending repositories
-      {languageName !== null ? ` for ${languageName}` : ""}.
+      {languageName !== "" ? ` for ${languageName}` : ""}.
     </div>
   );
   return (
