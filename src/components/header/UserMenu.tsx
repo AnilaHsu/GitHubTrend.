@@ -24,7 +24,7 @@ export function UserMenu({ avatar }: AvatarProps): JSX.Element {
   };
   return (
     <div>
-      <Tooltip title="Account settings">
+      <Tooltip title="Account">
         <IconButton
           onClick={handleClick}
           size="small"
@@ -59,7 +59,7 @@ export function UserMenu({ avatar }: AvatarProps): JSX.Element {
               display: "block",
               position: "absolute",
               top: 0,
-              right: 14,
+              right: 18,
               width: 10,
               height: 10,
               bgcolor: "background.paper",
