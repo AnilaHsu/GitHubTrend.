@@ -9,9 +9,10 @@ export function UserAvatar(): JSX.Element {
   let userImage: JSX.Element;
 
   if (photoUrl !== null) {
+    
     userImage = (
       <UserMenu
-        avatar={<img className="user-icon" alt="avatar" src={photoUrl} />}
+        avatar={<img className="user-icon" alt="avatar" src={photoUrl} referrerPolicy="no-referrer" />}
       />
     );
   } else {
