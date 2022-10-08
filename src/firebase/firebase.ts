@@ -7,7 +7,7 @@ export function firebaseAuth(): { auth: Auth; provider: GoogleAuthProvider } {
   initializeApp(firebaseConfig);
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
-  auth.languageCode = "it";
+  auth.useDeviceLanguage();
 
   return {
     auth,
