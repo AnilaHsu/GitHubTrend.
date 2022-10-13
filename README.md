@@ -2,7 +2,7 @@
   <p align="center">A homemade GitHub Trends Page built with <code>React</code> and <code>Redux Toolkit</code></p>
 
 <h2>Introduce</h2>
-  <p>This is a GitHub trending webpage written in <code>React</code> and <code>TypeScript</code>, using the <code>Redux toolkit</code> to manage state, and connecting APIs such as Google Authentication and Data.</p>
+  <p>This is a GitHub trending website written in <code>React</code> and <code>TypeScript</code>, using the <code>Redux toolkit</code> to manage state, and connecting APIs such as Google Authentication and Data.</p>
 
 <h2>Features</h2>
   <ul>
