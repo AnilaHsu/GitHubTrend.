@@ -24,14 +24,17 @@
   </ul>
 
 <h2>Libraries</h2>
-  <ul>
-    <li><a href="https://github.com/facebook/create-react-app">React</a></li>
-    <li><a href="https://github.com/microsoft/TypeScript">TypeScript</a></li>
-    <li><a href="https://github.com/reduxjs/redux-toolkit">Redux Tookit</a> & <a href="https://github.com/reduxjs/redux-thunk">Redux Thunk</a></li>
-    <li><a href="https://github.com/eslint/eslint">ESLint</a> & eslint-config-react-app</li>
-    <li><a href="https://github.com/prettier/prettier">Prettier</a> & <a href="https://github.com/prettier/eslint-config-prettier">eslint-config-prettier</a></li>
-    <li><a href="https://github.com/axios/axios">Axios</a> (HTTP client base on Promise)</li>
-    <li><a href="https://github.com/mui/material-ui">Material UI<a> (Foundational React components)</li>
-    <li><a href="https://github.com/LottieFiles/lottie-player">LottieFiles</a> (Animation)</li>
-    <li><a href="https://github.com/FortAwesome/Font-Awesome">FontAwesome</a> (Icon)</li>
-  </ul>
+
+- [React](https://github.com/facebook/create-react-app)
+- [TypeScript](https://github.com/microsoft/TypeScript)
+- Redux
+  - [Redux Thunk](https://github.com/reduxjs/redux-toolkit)
+  - [Redux Tookit](https://github.com/reduxjs/redux-thunk)
+- Lint
+  - [ESLint](https://github.com/eslint/eslint)
+  - [Prettier](https://github.com/prettier/prettier)
+  - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
+- [Axios](https://github.com/axios/axios) 
+- [Material UI](https://github.com/mui/material-ui)
+- [LottieFiles](https://github.com/LottieFiles/lottie-player) (Animation)
+- [FontAwesome](https://github.com/FortAwesome/Font-Awesome) (Icon)
