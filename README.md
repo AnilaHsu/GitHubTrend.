@@ -27,6 +27,7 @@
 
 - [React](https://github.com/facebook/create-react-app)
 - [TypeScript](https://github.com/microsoft/TypeScript)
+- [Sass](https://github.com/sass/sass)
 - Redux
   - [Redux Tookit](https://github.com/reduxjs/redux-thunk)
   - [Redux Thunk](https://github.com/reduxjs/redux-toolkit)
