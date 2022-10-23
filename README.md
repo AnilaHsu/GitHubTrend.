@@ -23,13 +23,13 @@
    </li>
   </ul>
 
-<h2>Libraries</h2>
+<h2>Tech Stacks</h2>
 
 - [React](https://github.com/facebook/create-react-app)
 - [TypeScript](https://github.com/microsoft/TypeScript)
 - Redux
-  - [Redux Thunk](https://github.com/reduxjs/redux-toolkit)
   - [Redux Tookit](https://github.com/reduxjs/redux-thunk)
+  - [Redux Thunk](https://github.com/reduxjs/redux-toolkit)
 - Lint
   - [ESLint](https://github.com/eslint/eslint)
   - [Prettier](https://github.com/prettier/prettier)
