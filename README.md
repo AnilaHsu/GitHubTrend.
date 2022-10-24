@@ -1,8 +1,8 @@
 <h1 align="center"> GitHub Trend.</h1>
-  <p align="center">A homemade GitHub Trends Page built with <code>React</code> and <code>Redux Toolkit</code></p>
+  <p align="center">A homemade GitHub Trends Page built with <code>React.js</code> and <code>Redux</code></p>
 
 <h2>Introduce</h2>
-  <p>This is a GitHub trending website written in <code>React</code> and <code>TypeScript</code>, using the <code>Redux toolkit</code> to manage state, and connecting APIs such as Google Authentication and Data.</p>
+  <p>This is a GitHub trending website written in <code>React.js</code> and <code>TypeScript</code>, using the <code>Redux</code> to manage state, and connecting APIs such as Google Authentication and Data.</p>
 
 <h2>Features</h2>
   <ul>
@@ -25,7 +25,7 @@
 
 <h2>Tech Stacks</h2>
 
-- [React](https://github.com/facebook/create-react-app)
+- [React.js](https://github.com/facebook/create-react-app)
 - [TypeScript](https://github.com/microsoft/TypeScript)
 - [Sass](https://github.com/sass/sass)
 - Redux
