@@ -8,6 +8,7 @@ import { GitHubTrend } from "../type";
 export function HomePage(): JSX.Element {
   const languageName = useAppSelector((state) => state.trend.langName);
   const trendingData = useAppSelector((state) => state.trend.trendData);
+  const loadingStatus = useAppSelector((state) => state.trend.status)
   const listItems: JSX.Element[] = trendingData.map(
     (trend: GitHubTrend, index: number) => {
       return (
@@ -48,6 +49,20 @@ export function HomePage(): JSX.Element {
       );
     }
   );
+  const loading = (
+    <div className="loading">
+      <p className="loading-text">Loading ...</p>
+      <lottie-player
+        src="https://assets6.lottiefiles.com/packages/lf20_T4XJOLEPj5.json"
+        background="transparent"
+        speed="1"
+        style={{width: 500 , height: 500 }}
+        loop
+        autoplay
+      ></lottie-player>
+    </div>
+  );
+
   const noData: JSX.Element = (
     <div className="no-data-container">
       It looks like we don&apos;t have any trending repositories
@@ -64,7 +79,7 @@ export function HomePage(): JSX.Element {
         <div className="trend-table">
           <TrendFilter />
           <div className="trend-content">
-            {trendingData.length > 0 ? listItems : noData}
+            { loadingStatus === "loading" ? loading : trendingData.length > 0 ? listItems : noData}
           </div>
         </div>
       </section>
