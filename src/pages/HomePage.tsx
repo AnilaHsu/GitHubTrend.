@@ -1,14 +1,15 @@
 import { useAppSelector } from "../redux";
 import "../style/homePage.scss";
 import TrendFilter from "../components/TrendFilter";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { solid, regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { GitHubTrend } from "../type";
+import star from "../assets/star.png";
+import fork from "../assets/fork.png";
+import code from "../assets/code.png";
 
 export function HomePage(): JSX.Element {
   const languageName = useAppSelector((state) => state.trend.langName);
   const trendingData = useAppSelector((state) => state.trend.trendData);
-  const loadingStatus = useAppSelector((state) => state.trend.status)
+  const loadingStatus = useAppSelector((state) => state.trend.status);
   const listItems: JSX.Element[] = trendingData.map(
     (trend: GitHubTrend, index: number) => {
       return (
@@ -28,19 +29,19 @@ export function HomePage(): JSX.Element {
           <div className="trend-right">
             {Boolean(trend.programmingLanguage) && (
               <span className="other-info">
-                <FontAwesomeIcon icon={solid("code")} className="icon" />
+                <img className="icon" src={code} alt="" />
                 {trend.programmingLanguage}
               </span>
             )}
             {Boolean(trend.stars) && (
               <span className="other-info">
-                <FontAwesomeIcon icon={regular("star")} className="icon" />
+                <img className="icon" src={star} alt="" />
                 {trend.stars}
               </span>
             )}
             {Boolean(trend.forks) && (
               <span className="other-info">
-                <FontAwesomeIcon icon={solid("code-fork")} className="icon" />
+                <img className="icon" src={fork} alt="" />
                 {trend.forks}
               </span>
             )}
@@ -56,7 +57,7 @@ export function HomePage(): JSX.Element {
         src="https://assets6.lottiefiles.com/packages/lf20_T4XJOLEPj5.json"
         background="transparent"
         speed="1"
-        style={{width: 500 , height: 500 }}
+        style={{ width: 500, height: 500 }}
         loop
         autoplay
       ></lottie-player>
@@ -79,7 +80,11 @@ export function HomePage(): JSX.Element {
         <div className="trend-table">
           <TrendFilter />
           <div className="trend-content">
-            { loadingStatus === "loading" ? loading : trendingData.length > 0 ? listItems : noData}
+            {loadingStatus === "loading"
+              ? loading
+              : trendingData.length > 0
+              ? listItems
+              : noData}
           </div>
         </div>
       </section>
