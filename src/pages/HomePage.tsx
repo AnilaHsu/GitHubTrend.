@@ -52,9 +52,9 @@ export function HomePage(): JSX.Element {
   );
   const loading = (
     <div className="loading">
-      <p className="loading-text">Loading ...</p>
+      <p className="loading-text">Loading . . .</p>
       <lottie-player
-        src="https://assets6.lottiefiles.com/packages/lf20_T4XJOLEPj5.json"
+        src="https://lottie.host/a62892ab-d02e-4a9c-8b0d-c9678abc016b/R9nOYs1JIO.json"
         background="transparent"
         speed="1"
         style={{ width: 500, height: 500 }}
