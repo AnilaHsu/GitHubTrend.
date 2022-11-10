@@ -28,7 +28,6 @@
   padding: 16px 20px;
   border-top: 1px solid #cccccc;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -57,7 +56,9 @@
 
 .other-info {
   margin: 4px;
-  text-align: end;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 .trend-left {
@@ -83,4 +84,19 @@
     top: 50px;
     font-weight: 600;
     color: #4e93b8;
+}
+
+@media screen and (max-width:640px) {
+  .trend-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+.trend-left {
+  width: 100%;
+}
+.trend-right {
+  flex-direction: row;
+  justify-content: start;
+}
 }
