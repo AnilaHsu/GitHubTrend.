@@ -1,10 +1,13 @@
 <h1 align="center"> GitHub Trend.</h1>
   <p align="center">A homemade GitHub Trends Page built with <code>React.js</code> and <code>TypeScript</code></p>
 
-<h2>Introduce</h2>
+## Introduce
+
   <p>This is a GitHub trending website written in <code>React.js</code> and <code>TypeScript</code>, using <code>Redux</code> to manage state, and connecting APIs such as Google Authentication and Data.</p>
 
-<h2>Features</h2>
+
+## Features 
+
   <ul>
     <li>Provide a Google account login/registration and logout feature.</li>
     <li>Trend data can be filtered by time range, the default is today's data.</li>
@@ -12,8 +15,20 @@
     <li>Click on the repository name to link directly to the repository's GitHub page.</li>
   </ul>
 
+## Useage
 
-<h2>APIs</h2>
+- Install all modules listed as dependencies in package.json.
+
+```shell
+npm i
+```` 
+
+- Runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
+```shell
+npm start
+```` 
+## APIs
+
  <ul>
    <li>
     <a href="https://github.com/yaoandy107/github-trending-api">GitHub Trending Data API</a> 
@@ -23,7 +38,7 @@
    </li>
   </ul>
 
-<h2>Tech Stacks</h2>
+## Tech Stacks 
 
 - [React.js](https://github.com/facebook/create-react-app)
 - [TypeScript](https://github.com/microsoft/TypeScript)
@@ -40,4 +55,8 @@
 - [Material UI](https://github.com/mui/material-ui)
 - [LottieFiles](https://github.com/LottieFiles/lottie-player) (Animation)
 - [FontAwesome](https://github.com/FortAwesome/Font-Awesome) (Icon)
-- Firebase 
+
+
+
+
+
