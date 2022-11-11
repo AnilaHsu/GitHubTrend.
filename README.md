@@ -45,10 +45,11 @@ npm start
 - [React.js](https://github.com/facebook/create-react-app)
 - [TypeScript](https://github.com/microsoft/TypeScript)
 - [Sass](https://github.com/sass/sass)
-- Redux
-  - [Redux-React](https://github.com/reduxjs/react-redux)
+- [Redux](https://github.com/reduxjs/redux)
+  - [React Redux](https://github.com/reduxjs/react-redux)
   - [Redux Tookit](https://github.com/reduxjs/redux-thunk)
   - [Redux Thunk](https://github.com/reduxjs/redux-toolkit)
+  - MiddleWare
 - Lint
   - [ESLint](https://github.com/eslint/eslint)
   - [Prettier](https://github.com/prettier/prettier)
