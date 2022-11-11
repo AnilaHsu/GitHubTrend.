@@ -1,6 +1,7 @@
 <h1 align="center"> GitHub Trend.</h1>
   <p align="center">A homemade GitHub Trends Page built with <code>React.js</code> and <code>TypeScript</code></p>
 
+
 ## Introduce
 
   <p>This is a GitHub trending website written in <code>React.js</code> and <code>TypeScript</code>, using <code>Redux</code> to manage state, and connecting APIs such as Google Authentication and Data.</p>
@@ -18,7 +19,6 @@
 ## Useage
 
 - Install all modules listed as dependencies in package.json.
-
 ```shell
 npm i
 ```` 
@@ -27,6 +27,7 @@ npm i
 ```shell
 npm start
 ```` 
+
 ## APIs
 
  <ul>
