@@ -2,7 +2,7 @@
   "name": "reald",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AnilaHsu.github.io/GitHubTrend.",
+  "homepage": "https://AnilaHsu.github.io/GitHubTrend",
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
