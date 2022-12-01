@@ -1,4 +1,4 @@
-<h1 align="center"> GitHub Trend.</h1>
+<h1 align="center"> GitHub Trend</h1>
   <p align="center">A homemade GitHub Trends Page built with <code>React.js</code>, <code>Redux</code> and <code>TypeScript</code>.</p>
 
 
