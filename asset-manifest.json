@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/GitHubTrend./static/css/main.ffbe8bfc.css",
-    "main.js": "/GitHubTrend./static/js/main.16b30fc0.js",
-    "static/js/787.efd42be3.chunk.js": "/GitHubTrend./static/js/787.efd42be3.chunk.js",
-    "index.html": "/GitHubTrend./index.html",
-    "main.ffbe8bfc.css.map": "/GitHubTrend./static/css/main.ffbe8bfc.css.map",
-    "main.16b30fc0.js.map": "/GitHubTrend./static/js/main.16b30fc0.js.map",
-    "787.efd42be3.chunk.js.map": "/GitHubTrend./static/js/787.efd42be3.chunk.js.map"
+    "main.css": "/GitHubTrend/static/css/main.ffbe8bfc.css",
+    "main.js": "/GitHubTrend/static/js/main.605d7688.js",
+    "static/js/787.efd42be3.chunk.js": "/GitHubTrend/static/js/787.efd42be3.chunk.js",
+    "index.html": "/GitHubTrend/index.html",
+    "main.ffbe8bfc.css.map": "/GitHubTrend/static/css/main.ffbe8bfc.css.map",
+    "main.605d7688.js.map": "/GitHubTrend/static/js/main.605d7688.js.map",
+    "787.efd42be3.chunk.js.map": "/GitHubTrend/static/js/787.efd42be3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ffbe8bfc.css",
-    "static/js/main.16b30fc0.js"
+    "static/js/main.605d7688.js"
   ]
 }
