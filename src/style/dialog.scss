@@ -10,15 +10,12 @@
 }
 .dialog-popup {
   background-color: rgb(233, 235, 237);
-  height: 400px;
-  width: 650px;
   display: flex;
   align-items: center;
-  border-radius: 10px;
   position: relative;
-  display: flex;
   justify-content: center;
   border-radius: 20px;
+  padding: 20px;
 }
 
 .close {
@@ -28,4 +25,14 @@
   position: absolute;
   right: 6px;
   top: 6px;
+}
+
+@media screen and (max-width:860px) {
+  .dialog-container {
+    top: 60px;
+  }
+  .dialog-popup {
+    flex-direction: column-reverse;
+    padding: 8px;
+  }
 }
