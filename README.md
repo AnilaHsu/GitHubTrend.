@@ -7,7 +7,9 @@
   <p>This is a GitHub trending website written in <code>React.js</code> and <code>TypeScript</code>, using <code>Redux</code> to manage state, and connecting APIs such as Google Authentication and Data.</p>
 
 
-## Features 
+## Overview
+
+### App Features 
 
   <ul>
     <li>It provides a Google Authentication to Login / Registration and Logout.</li>
@@ -16,6 +18,33 @@
     <li>Click on the repository name to link directly to the repository on GitHub.</li>
     <li>It considers Mobile-First responsive design.</li>
   </ul>
+  
+### App Screenshot
+<h4 align="center">Desktop</h4>
+<p align="center" width="100%">
+  <kbd>
+     <img width="600" alt="desktop" src="https://user-images.githubusercontent.com/50144690/212465242-ab6434e4-3624-42b8-a996-ae566e5485d3.png">
+  <kbd>
+</p>  
+<p align="center" width="100%">
+  <kbd>
+     <img width="600" alt="desktop-login" src="https://user-images.githubusercontent.com/50144690/212465243-5e1d869a-41f2-46d8-b9c0-45dc3c5befd5.png">
+  <kbd>
+</p>
+    
+<h4 align="center">Mobile</h4>
+<p align="center" width="100%">
+  <kbd>
+     <img width="325" alt="mobile" src="https://user-images.githubusercontent.com/50144690/212465261-47becb9f-4998-43e6-9d5b-37bb0e6dde36.png">
+    <img width="325" alt="mobile-login" src="https://user-images.githubusercontent.com/50144690/212465266-7dbdf00f-d484-4a17-96a8-ec3acf9f1f81.png">
+  <kbd>
+</p>
+
+
+
+
+### App Link
+- Live Site URL: [GitHubTrend](https://anilahsu.github.io/GitHubTrend/)
 
 ## Useage
 
@@ -29,7 +58,7 @@ npm i
 npm start
 ```` 
 
-## APIs
+## Data APIs
 
  <ul>
    <li>
@@ -42,6 +71,8 @@ npm start
 
 ## Tech Stacks 
 
+- Semantic HTML5 markup
+- SCSS custom properties
 - [React.js](https://github.com/facebook/create-react-app)
 - [TypeScript](https://github.com/microsoft/TypeScript)
 - [Sass](https://github.com/sass/sass)
