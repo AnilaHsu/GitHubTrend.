@@ -83,7 +83,7 @@ export function DialogOption(): JSX.Element {
         </div>
         <div className="button-block">
           <button
-            className="register-button"
+            className="register-button-google"
             onClick={() => {
               void dispatch(userLogin());
               dispatch(selectOption(""));
