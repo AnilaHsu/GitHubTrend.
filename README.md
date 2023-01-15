@@ -12,10 +12,10 @@
 ### App Features 
 
   <ul>
-    <li>It provides a Google Authentication to Login / Registration and Logout.</li>
+    <li>Click on the repository name to link directly to the repository on GitHub.</li>
     <li>Trend data can be filtered by Time Range, the default is today's trends.</li>
     <li>Trend data can be filtered by Programming Language, the default is all.</li>
-    <li>Click on the repository name to link directly to the repository on GitHub.</li>
+    <li>It provides a Google Authentication to Login / Registration and Logout.</li>
     <li>It considers Mobile-First responsive design.</li>
   </ul>
   
