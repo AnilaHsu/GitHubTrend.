@@ -34,7 +34,7 @@
    </ul>
   
 ### App Screenshot
-<h4 align="center">Desktop ・デスクトップ</h4>
+<h4 align="center">Desktop・デスクトップ</h4>
 <p align="center" width="100%">
   <kbd>
      <img width="600" alt="desktop" src="https://user-images.githubusercontent.com/50144690/212465242-ab6434e4-3624-42b8-a996-ae566e5485d3.png">
@@ -46,7 +46,7 @@
   <kbd>
 </p>
     
-<h4 align="center">Mobile ・ モバイル</h4>
+<h4 align="center">Mobile・モバイル</h4>
 <p align="center" width="100%">
   <kbd>
      <img width="325" alt="mobile" src="https://user-images.githubusercontent.com/50144690/212465261-47becb9f-4998-43e6-9d5b-37bb0e6dde36.png">
