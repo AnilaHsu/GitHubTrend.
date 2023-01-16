@@ -3,7 +3,7 @@
   <p align="center"><code>React.js</code>、<code>Redux</code>、<code>TypeScript</code>で構築された自家製の GitHub トレンド ページ。</code></p>
 
 
-## Introduce
+## Introduction | 紹介
 
   <p>
   This is a GitHub trending website written in <code>React.js</code> and <code>TypeScript</code>, using <code>Redux</code> to manage state, and connecting APIs such as Google Authentication and Data.
@@ -12,9 +12,9 @@
   これは、<code>React.js</code> と <code>TypeScript</code> で記述され、<code>Redux</code> を使用して状態を管理し、Google 認証やデータなどの API を接続する GitHub のトレンド Web サイトです。
   </p>
 
-## Overview
+## Overview | 概要
 
-### App Features 
+### App Features | アプリの機能
 
   <ul>
     <li>Click on the repository name to link directly to the repository on GitHub.</li>
@@ -31,7 +31,7 @@
      <li>モバイル ファーストのレスポンシブ デザインを考慮しています。</li>
    </ul>
   
-### App Screenshot
+### App Screenshot | アプリのスクリーンショット
 <h4 align="center">Desktop</h4>
 <p align="center" width="100%">
   <kbd>
@@ -55,10 +55,10 @@
 
 
 
-### App Link
+### App Link | アプリリンク
 - Live Site URL: [GitHubTrend](https://anilahsu.github.io/GitHubTrend/)
 
-## Useage
+## Useage | 用途
 
 - Install all modules listed as dependencies in package.json.
 ```shell
@@ -70,7 +70,7 @@ npm i
 npm start
 ```` 
 
-## Data APIs
+## Data APIs | データ API
 
  <ul>
    <li>
@@ -81,7 +81,7 @@ npm start
    </li>
   </ul>
 
-## Tech Stacks 
+## Tech Stacks | 技術スタック
 
 - Semantic HTML5 markup
 - SCSS custom properties
