@@ -14,7 +14,7 @@
 
 ## Overview | 概要
 
-### App Features | アプリの機能
+### App Features
 
   <ul>
     <li>Click on the repository name to link directly to the repository on GitHub.</li>
@@ -23,6 +23,8 @@
     <li>It provides a Google Authentication to Login / Registration and Logout.</li>
     <li>It considers Mobile-First responsive design.</li>
   </ul>
+  
+### アプリの機能
   <ul>
      <li>リポジトリ名をクリックして、GitHub のリポジトリに直接リンクします。</li>
      <li>トレンド データは時間範囲でフィルタリングできます。デフォルトは今日のトレンドです。</li>
@@ -31,8 +33,8 @@
      <li>モバイル ファーストのレスポンシブ デザインを考慮しています。</li>
    </ul>
   
-### App Screenshot | アプリのスクリーンショット
-<h4 align="center">Desktop</h4>
+### App Screenshot
+<h4 align="center">Desktop ・デスクトップ</h4>
 <p align="center" width="100%">
   <kbd>
      <img width="600" alt="desktop" src="https://user-images.githubusercontent.com/50144690/212465242-ab6434e4-3624-42b8-a996-ae566e5485d3.png">
@@ -44,7 +46,7 @@
   <kbd>
 </p>
     
-<h4 align="center">Mobile</h4>
+<h4 align="center">Mobile ・ モバイル</h4>
 <p align="center" width="100%">
   <kbd>
      <img width="325" alt="mobile" src="https://user-images.githubusercontent.com/50144690/212465261-47becb9f-4998-43e6-9d5b-37bb0e6dde36.png">
@@ -55,7 +57,7 @@
 
 
 
-### App Link | アプリリンク
+### App Link
 - Live Site URL: [GitHubTrend](https://anilahsu.github.io/GitHubTrend/)
 
 ## Useage | 用途
