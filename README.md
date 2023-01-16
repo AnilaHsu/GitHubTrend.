@@ -1,11 +1,16 @@
-<h1 align="center"> GitHub Trend</h1>
+<h1 align="center"><a href="https://anilahsu.github.io/GitHubTrend/"> GitHub Trend</a></h1>
   <p align="center">A homemade GitHub Trends Page built with <code>React.js</code>, <code>Redux</code> and <code>TypeScript</code>.</p>
+  <p align="center"><code>React.js</code>、<code>Redux</code>、<code>TypeScript</code>で構築された自家製の GitHub トレンド ページ。</code></p>
 
 
 ## Introduce
 
-  <p>This is a GitHub trending website written in <code>React.js</code> and <code>TypeScript</code>, using <code>Redux</code> to manage state, and connecting APIs such as Google Authentication and Data.</p>
-
+  <p>
+  This is a GitHub trending website written in <code>React.js</code> and <code>TypeScript</code>, using <code>Redux</code> to manage state, and connecting APIs such as Google Authentication and Data.
+  </p>
+  <p>
+  これは、<code>React.js</code> と <code>TypeScript</code> で記述され、<code>Redux</code> を使用して状態を管理し、Google 認証やデータなどの API を接続する GitHub のトレンド Web サイトです。
+  </p>
 
 ## Overview
 
@@ -18,6 +23,13 @@
     <li>It provides a Google Authentication to Login / Registration and Logout.</li>
     <li>It considers Mobile-First responsive design.</li>
   </ul>
+  <ul>
+     <li>リポジトリ名をクリックして、GitHub のリポジトリに直接リンクします。</li>
+     <li>トレンド データは時間範囲でフィルタリングできます。デフォルトは今日のトレンドです。</li>
+     <li>トレンド データはプログラミング言語でフィルタリングできます。デフォルトは all です。</li>
+     <li>ログイン/登録およびログアウトに Google 認証を提供します。</li>
+     <li>モバイル ファーストのレスポンシブ デザインを考慮しています。</li>
+   </ul>
   
 ### App Screenshot
 <h4 align="center">Desktop</h4>
