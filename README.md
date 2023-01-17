@@ -85,7 +85,7 @@ npm start
 
 ## Tech Stacks | 技術スタック
 
-- [React.js](https://github.com/facebook/create-react-app)
+- [ReactJS](https://github.com/facebook/create-react-app)
 - [TypeScript](https://github.com/microsoft/TypeScript)
 - [Redux](https://github.com/reduxjs/redux)
   - [React Redux](https://github.com/reduxjs/react-redux)
