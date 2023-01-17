@@ -85,26 +85,22 @@ npm start
 
 ## Tech Stacks | 技術スタック
 
-- Semantic HTML5 markup
-- SCSS custom properties
 - [React.js](https://github.com/facebook/create-react-app)
 - [TypeScript](https://github.com/microsoft/TypeScript)
-- [Sass](https://github.com/sass/sass)
 - [Redux](https://github.com/reduxjs/redux)
   - [React Redux](https://github.com/reduxjs/react-redux)
   - [Redux Tookit](https://github.com/reduxjs/redux-thunk)
   - [Redux Thunk](https://github.com/reduxjs/redux-toolkit)
   - MiddleWare
+- Semantic HTML5 markup
+- [SCSS custom properties](https://github.com/sass/sass)
+- [Material UI](https://github.com/mui/material-ui)
+- [LottieFiles](https://github.com/LottieFiles/lottie-player) (Animation)
+- [FontAwesome](https://github.com/FortAwesome/Font-Awesome) (Icon)
+- [Axios](https://github.com/axios/axios) 
 - Lint
   - [ESLint](https://github.com/eslint/eslint)
   - [Prettier](https://github.com/prettier/prettier)
   - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
-- [Axios](https://github.com/axios/axios) 
-- [Material UI](https://github.com/mui/material-ui)
-- [LottieFiles](https://github.com/LottieFiles/lottie-player) (Animation)
-- [FontAwesome](https://github.com/FortAwesome/Font-Awesome) (Icon)
-
-
-
 
 
